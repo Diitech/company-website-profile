@@ -57,7 +57,7 @@ function PartnersPage() {
       <title>Our Partners | DMULTICHOICE Nigeria</title>
       <meta name="description" content="DMULTICHOICE partners with industry leaders including DHL, FedEx, Booking.com, Alibaba, Maersk, and GIG Logistics for comprehensive digital and logistics solutions." />
       <meta name="keywords" content="DMULTICHOICE partners, DHL Nigeria, FedEx Nigeria, Alibaba partner, logistics partners" />
-      
+
       {/* Hero */}
       <section className="relative py-16">
         <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-transparent" />
@@ -90,7 +90,7 @@ function PartnersPage() {
             }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {partners.map((partner, index) => (
+            {partners.map((partner) => (
               <motion.div
                 key={partner.name}
                 variants={{
