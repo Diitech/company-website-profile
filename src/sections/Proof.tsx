@@ -458,7 +458,6 @@ function TrustBadge({ delay }: { delay: number }) {
 /* â”€â”€â”€ MAIN PROOF SECTION â”€â”€â”€ */
 export function Proof() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
