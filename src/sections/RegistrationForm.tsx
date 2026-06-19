@@ -1,4 +1,4 @@
-﻿import { motion, useInView, AnimatePresence } from 'framer-motion';
+﻿import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useCallback } from 'react';
 import {
   User, Mail, Phone, Building, MapPin, Briefcase, GraduationCap, Send,

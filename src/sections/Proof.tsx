@@ -1,4 +1,4 @@
-﻿import { motion, useInView, AnimatePresence } from "framer-motion";
+﻿import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect, useCallback, useMemo } from "react";
 import {
   MessageSquare,
