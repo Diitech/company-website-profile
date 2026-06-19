@@ -18,14 +18,5 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {},
-  "structuredData": {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Dmultichoice",
-    "url": "https://www.dmultichoice.com/",
-    "description": "Providing digital solutions and global procurement services for businesses worldwide.",
-    "areaServed": "Global",
-    "category": "IT Services & Solutions"
-  }
+  "registries": {}
 }
