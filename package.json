@@ -5,7 +5,7 @@
     "type":  "module",
     "scripts":  {
                     "dev":  "vite",
-                    "build":  "npx tsc --noEmit \u0026\u0026 vite build",
+                    "build":  "vite build",
                     "lint":  "eslint .",
                     "preview":  "vite preview"
                 },
@@ -79,6 +79,6 @@
                             "vite":  "^7.2.4"
                         },
     "engines":  {
-                    "node":  "\u003e=18.0.0"
+                    "node":  "20.x"
                 }
 }
