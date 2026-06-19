@@ -5,7 +5,6 @@ import {
   TrendingUp,
   Users,
   Shield,
-  Zap,
   Award,
   ArrowRight,
   MessageCircle,
@@ -25,7 +24,15 @@ const WHATSAPP_NUMBER = "2348158484621";
 /* ───────────────────────────────
    SCROLL REVEAL WRAPPER
    ─────────────────────────────── */
-function ScrollReveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+function ScrollReveal({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -45,11 +52,16 @@ function ScrollReveal({ children, delay = 0, className = "" }: { children: React
 const stats = [
   { value: "5+", label: "Countries Served", icon: Globe, color: "#3B82F6" },
   { value: "100+", label: "Clients Served", icon: Users, color: "#10B981" },
-  { value: "30%", label: "Average Savings", icon: TrendingUp, color: "#F59E0B" },
+  {
+    value: "30%",
+    label: "Average Savings",
+    icon: TrendingUp,
+    color: "#F59E0B",
+  },
   { value: "99%", label: "Satisfaction Rate", icon: Star, color: "#EC4899" },
 ];
 
-function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
+function StatCard({ stat, index }: { stat: (typeof stats)[0]; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -57,7 +69,11 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -6 }}
@@ -114,13 +130,23 @@ const pillars = [
   },
 ];
 
-function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: number }) {
+function PillarCard({
+  pillar,
+  index,
+}: {
+  pillar: (typeof pillars)[0];
+  index: number;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.12,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       whileHover={{ y: -4, scale: 1.02 }}
       className="group relative rounded-2xl p-6 transition-all duration-500"
       style={{
@@ -140,8 +166,12 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
       >
         <pillar.icon className="w-5 h-5" style={{ color: pillar.color }} />
       </div>
-      <h3 className="text-sm font-bold text-white mb-2 relative">{pillar.title}</h3>
-      <p className="text-xs text-white/40 leading-relaxed relative">{pillar.desc}</p>
+      <h3 className="text-sm font-bold text-white mb-2 relative">
+        {pillar.title}
+      </h3>
+      <p className="text-xs text-white/40 leading-relaxed relative">
+        {pillar.desc}
+      </p>
     </motion.div>
   );
 }
@@ -150,12 +180,36 @@ function PillarCard({ pillar, index }: { pillar: typeof pillars[0]; index: numbe
    TIMELINE ITEM
    ─────────────────────────────── */
 const milestones = [
-  { year: "2020", title: "Founded in Lagos", desc: "Started as a small web development agency with a vision to digitize Nigerian businesses." },
-  { year: "2021", title: "First 50 Clients", desc: "Delivered websites and digital solutions to schools, hotels, and SMEs across Nigeria." },
-  { year: "2022", title: "Global Sourcing Launch", desc: "Expanded into international procurement, connecting clients to suppliers in China and UK." },
-  { year: "2023", title: "AI & Automation", desc: "Introduced AI chatbots and workflow automation, reducing client operational costs by 40%." },
-  { year: "2024", title: "CAC Registration", desc: "Officially registered as DMULTICHOICE SERVICES LTD (RC 9580371) under CAMA 2020." },
-  { year: "2025", title: "5 Countries & Growing", desc: "Active operations across Nigeria, UK, China, Turkey, and UAE with 100+ satisfied clients." },
+  {
+    year: "2020",
+    title: "Founded in Lagos",
+    desc: "Started as a small web development agency with a vision to digitize Nigerian businesses.",
+  },
+  {
+    year: "2021",
+    title: "First 50 Clients",
+    desc: "Delivered websites and digital solutions to schools, hotels, and SMEs across Nigeria.",
+  },
+  {
+    year: "2022",
+    title: "Global Sourcing Launch",
+    desc: "Expanded into international procurement, connecting clients to suppliers in China and UK.",
+  },
+  {
+    year: "2023",
+    title: "AI & Automation",
+    desc: "Introduced AI chatbots and workflow automation, reducing client operational costs by 40%.",
+  },
+  {
+    year: "2024",
+    title: "CAC Registration",
+    desc: "Officially registered as DMULTICHOICE SERVICES LTD (RC 9580371) under CAMA 2020.",
+  },
+  {
+    year: "2025",
+    title: "5 Countries & Growing",
+    desc: "Active operations across Nigeria, UK, China, Turkey, and UAE with 100+ satisfied clients.",
+  },
 ];
 
 function Timeline() {
@@ -170,16 +224,26 @@ function Timeline() {
           initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative flex items-start gap-6 mb-10 ${i % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'}`}
+          transition={{
+            duration: 0.6,
+            delay: i * 0.1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className={`relative flex items-start gap-6 mb-10 ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"}`}
         >
           {/* Dot */}
           <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-blue-400 border-2 border-[#030305] z-10 shadow-[0_0_12px_rgba(96,165,250,0.4)]" />
 
           {/* Content */}
-          <div className={`ml-10 sm:ml-0 sm:w-1/2 ${i % 2 === 0 ? 'sm:pr-12 sm:text-right' : 'sm:pl-12'}`}>
-            <span className="text-[11px] font-bold text-blue-400 tracking-wide">{m.year}</span>
-            <h4 className="text-sm font-bold text-white mt-1 mb-1">{m.title}</h4>
+          <div
+            className={`ml-10 sm:ml-0 sm:w-1/2 ${i % 2 === 0 ? "sm:pr-12 sm:text-right" : "sm:pl-12"}`}
+          >
+            <span className="text-[11px] font-bold text-blue-400 tracking-wide">
+              {m.year}
+            </span>
+            <h4 className="text-sm font-bold text-white mt-1 mb-1">
+              {m.title}
+            </h4>
             <p className="text-xs text-white/40 leading-relaxed">{m.desc}</p>
           </div>
         </motion.div>
@@ -207,7 +271,10 @@ export function OurStory() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 lg:py-32 relative overflow-hidden bg-[#030305]">
+    <section
+      id="about"
+      className="py-24 lg:py-32 relative overflow-hidden bg-[#030305]"
+    >
       {/* Background glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-blue-600/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-500/4 rounded-full blur-3xl" />
@@ -247,8 +314,9 @@ export function OurStory() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/40 text-sm max-w-2xl mx-auto leading-relaxed"
           >
-            From a small Lagos web agency to a full-service digital studio and global procurement partner. 
-            We bridge the gap between Nigerian businesses and the world.
+            From a small Lagos web agency to a full-service digital studio and
+            global procurement partner. We bridge the gap between Nigerian
+            businesses and the world.
           </motion.p>
         </div>
 
@@ -272,17 +340,21 @@ export function OurStory() {
 
             <ScrollReveal delay={0.1}>
               <p className="text-white/50 text-sm leading-relaxed">
-                Imagine a world where technology empowers your institution to grow, and global markets 
-                are just a click away. DMULTICHOICE bridges the gap between Nigerian businesses and 
-                international suppliers, ensuring safe transactions, quality assurance, and cost efficiency.
+                Imagine a world where technology empowers your institution to
+                grow, and global markets are just a click away. DMULTICHOICE
+                bridges the gap between Nigerian businesses and international
+                suppliers, ensuring safe transactions, quality assurance, and
+                cost efficiency.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.15}>
               <p className="text-white/50 text-sm leading-relaxed">
-                We are not just service providers — we are long-term strategic partners committed to 
-                helping schools, businesses, and institutions grow through technology and global access. 
-                Every project is backed by our commitment to excellence, transparency, and measurable results.
+                We are not just service providers — we are long-term strategic
+                partners committed to helping schools, businesses, and
+                institutions grow through technology and global access. Every
+                project is backed by our commitment to excellence, transparency,
+                and measurable results.
               </p>
             </ScrollReveal>
 
@@ -359,7 +431,7 @@ export function OurStory() {
                   className="w-full h-auto object-cover rounded-3xl"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
+                    target.style.display = "none";
                   }}
                 />
                 {/* Gradient overlay */}
@@ -381,8 +453,12 @@ export function OurStory() {
                       <Award className="w-5 h-5 text-blue-400" />
                     </div>
                     <div>
-                      <div className="text-sm font-bold text-white">CAC Registered</div>
-                      <div className="text-[10px] text-white/40">RC 9580371 · SMEDAN Certified</div>
+                      <div className="text-sm font-bold text-white">
+                        CAC Registered
+                      </div>
+                      <div className="text-[10px] text-white/40">
+                        RC 9580371 · SMEDAN Certified
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -442,9 +518,11 @@ export function OurStory() {
 
         {/* ═══════ TRUST BADGES + FINAL CTA ═══════ */}
         <ScrollReveal>
-          <div className="rounded-3xl overflow-hidden relative"
+          <div
+            className="rounded-3xl overflow-hidden relative"
             style={{
-              background: "linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(16,185,129,0.03) 100%)",
+              background:
+                "linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(16,185,129,0.03) 100%)",
               border: "1px solid rgba(255,255,255,0.06)",
             }}
           >
@@ -466,7 +544,9 @@ export function OurStory() {
                     className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06]"
                   >
                     <badge.icon className="w-3 h-3 text-white/40" />
-                    <span className="text-[10px] text-white/45 font-medium">{badge.text}</span>
+                    <span className="text-[10px] text-white/45 font-medium">
+                      {badge.text}
+                    </span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -475,8 +555,9 @@ export function OurStory() {
                 Ready to Transform Your Business?
               </h3>
               <p className="text-white/40 text-sm max-w-lg mx-auto mb-8 leading-relaxed">
-                Join 100+ businesses that trust DMULTICHOICE for digital solutions and global procurement. 
-                Your success story starts with a single message.
+                Join 100+ businesses that trust DMULTICHOICE for digital
+                solutions and global procurement. Your success story starts with
+                a single message.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">

@@ -10,7 +10,6 @@ import {
   Factory,
   ArrowRight,
   MessageCircle,
-  Sparkles,
   Globe,
   Package,
   CheckCircle2,
@@ -29,7 +28,13 @@ const WHATSAPP_NUMBER = "2348158484621";
 const productCategories = [
   {
     title: "Technology & Gadgets",
-    items: ["Smartphones", "Laptops", "Electronics", "Smart devices", "Accessories"],
+    items: [
+      "Smartphones",
+      "Laptops",
+      "Electronics",
+      "Smart devices",
+      "Accessories",
+    ],
     icon: Smartphone,
     color: "#3B82F6",
     image: "/products/tech.jpg",
@@ -37,7 +42,13 @@ const productCategories = [
   },
   {
     title: "Home & Kitchen Appliances",
-    items: ["Refrigerators", "Gas cookers", "Washing machines", "Kitchen equipment", "Small appliances"],
+    items: [
+      "Refrigerators",
+      "Gas cookers",
+      "Washing machines",
+      "Kitchen equipment",
+      "Small appliances",
+    ],
     icon: Home,
     color: "#06B6D4",
     image: "/products/home.jpg",
@@ -53,7 +64,13 @@ const productCategories = [
   },
   {
     title: "Furniture",
-    items: ["Office furniture", "School furniture", "Home furniture", "Outdoor", "Custom designs"],
+    items: [
+      "Office furniture",
+      "School furniture",
+      "Home furniture",
+      "Outdoor",
+      "Custom designs",
+    ],
     icon: Sofa,
     color: "#8B5CF6",
     image: "/products/furniture.jpg",
@@ -69,7 +86,13 @@ const productCategories = [
   },
   {
     title: "Building Materials",
-    items: ["Tiles", "Doors", "Roofing materials", "Construction supplies", "Plumbing"],
+    items: [
+      "Tiles",
+      "Doors",
+      "Roofing materials",
+      "Construction supplies",
+      "Plumbing",
+    ],
     icon: Building2,
     color: "#10B981",
     image: "/products/building.jpg",
@@ -77,7 +100,13 @@ const productCategories = [
   },
   {
     title: "Industrial Equipment",
-    items: ["Factory machines", "Processing equipment", "Production tools", "Generators", "Compressors"],
+    items: [
+      "Factory machines",
+      "Processing equipment",
+      "Production tools",
+      "Generators",
+      "Compressors",
+    ],
     icon: Factory,
     color: "#F97316",
     image: "/products/industrial.jpg",
@@ -99,7 +128,15 @@ const countries = [
 /* ───────────────────────────────
    SCROLL REVEAL
    ─────────────────────────────── */
-function ScrollReveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+function ScrollReveal({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -116,7 +153,13 @@ function ScrollReveal({ children, delay = 0, className = "" }: { children: React
 /* ───────────────────────────────
    PRODUCT CARD
    ─────────────────────────────── */
-function ProductCard({ category, index }: { category: typeof productCategories[0]; index: number }) {
+function ProductCard({
+  category,
+  index,
+}: {
+  category: (typeof productCategories)[0];
+  index: number;
+}) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -124,7 +167,11 @@ function ProductCard({ category, index }: { category: typeof productCategories[0
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.08,
+        ease: [0.22, 1, 0.36, 1],
+      }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="group relative"
@@ -151,7 +198,10 @@ function ProductCard({ category, index }: { category: typeof productCategories[0
             whileHover={{ scale: 1.1, rotate: 3 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <category.icon className="w-5 h-5" style={{ color: category.color }} />
+            <category.icon
+              className="w-5 h-5"
+              style={{ color: category.color }}
+            />
           </motion.div>
 
           <div className="flex -space-x-1.5">
@@ -247,16 +297,23 @@ function CountryMarquee() {
         transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
         className="flex gap-8 whitespace-nowrap"
       >
-        {[...countries, ...countries, ...countries, ...countries].map((c, i) => (
-          <div key={i} className="flex items-center gap-2 shrink-0">
-            <span className="text-lg">{c.flag}</span>
-            <span className="text-xs text-white/40 font-medium">{c.name}</span>
-            <span
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ background: c.color, boxShadow: `0 0 8px ${c.color}44` }}
-            />
-          </div>
-        ))}
+        {[...countries, ...countries, ...countries, ...countries].map(
+          (c, i) => (
+            <div key={i} className="flex items-center gap-2 shrink-0">
+              <span className="text-lg">{c.flag}</span>
+              <span className="text-xs text-white/40 font-medium">
+                {c.name}
+              </span>
+              <span
+                className="w-1.5 h-1.5 rounded-full"
+                style={{
+                  background: c.color,
+                  boxShadow: `0 0 8px ${c.color}44`,
+                }}
+              />
+            </div>
+          ),
+        )}
       </motion.div>
     </div>
   );
@@ -286,7 +343,9 @@ function TrustBar() {
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06]"
         >
           <item.icon className="w-3 h-3 text-white/40" />
-          <span className="text-[10px] text-white/45 font-medium">{item.text}</span>
+          <span className="text-[10px] text-white/45 font-medium">
+            {item.text}
+          </span>
         </motion.div>
       ))}
     </div>
@@ -301,7 +360,10 @@ export function Products() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="products" className="py-24 lg:py-32 relative overflow-hidden bg-[#030305]">
+    <section
+      id="products"
+      className="py-24 lg:py-32 relative overflow-hidden bg-[#030305]"
+    >
       {/* Background glows */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/6 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/4 rounded-full blur-3xl" />
@@ -340,8 +402,9 @@ export function Products() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-white/40 text-sm max-w-2xl mx-auto leading-relaxed mb-8"
           >
-            We facilitate the importation of a wide range of products from verified suppliers 
-            across China, UK, Turkey, Italy, and more — all insured and customs-cleared.
+            We facilitate the importation of a wide range of products from
+            verified suppliers across China, UK, Turkey, Italy, and more — all
+            insured and customs-cleared.
           </motion.p>
 
           <ScrollReveal delay={0.1}>
@@ -367,7 +430,8 @@ export function Products() {
             whileHover={{ scale: 1.005 }}
             className="relative rounded-3xl overflow-hidden"
             style={{
-              background: "linear-gradient(135deg, rgba(59,130,246,0.06) 0%, rgba(16,185,129,0.03) 100%)",
+              background:
+                "linear-gradient(135deg, rgba(59,130,246,0.06) 0%, rgba(16,185,129,0.03) 100%)",
               border: "1px solid rgba(255,255,255,0.06)",
             }}
           >
@@ -378,8 +442,9 @@ export function Products() {
                   Looking for Something Specific?
                 </h3>
                 <p className="text-white/40 text-sm max-w-md leading-relaxed">
-                  We source products beyond this list. Tell us what you need and we will find verified 
-                  suppliers, negotiate prices, and deliver to your doorstep — fully insured.
+                  We source products beyond this list. Tell us what you need and
+                  we will find verified suppliers, negotiate prices, and deliver
+                  to your doorstep — fully insured.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">

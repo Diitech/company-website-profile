@@ -1,4 +1,4 @@
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useMemo, useState, useEffect } from 'react';
 import { Warehouse, MapPin, Package, Truck, Shield, Clock, ArrowUpRight, BarChart3, Globe, ChevronRight, Play, CheckCircle2, TrendingUp, Box, Lock, Eye } from 'lucide-react';
 
@@ -429,7 +429,6 @@ function LocationCard() {
 /* ─── MAIN SECTION ─── */
 export function WarehouseSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const features = [
     { icon: Package, title: "Secure Storage", description: "24/7 monitored facility with CCTV surveillance, access control, and climate regulation for sensitive goods.", color: "bg-blue-500/20", delay: 0.1 },

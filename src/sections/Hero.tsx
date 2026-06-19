@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
+﻿import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -26,16 +26,16 @@ import {
 
 const WHATSAPP_NUMBER = "2348158484621";
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    UTILITIES
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function cx(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SEEDED RANDOM (deterministic)
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function seededRandom(seed: number) {
   let s = seed;
   return () => {
@@ -44,9 +44,9 @@ function seededRandom(seed: number) {
   };
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    AMBIENT GRADIENT ORBS
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function Orbs() {
   const orbs = [
     { cls: "bg-blue-500/20", left: "8%", top: "15%", w: "w-72 h-72", dur: 20 },
@@ -81,9 +81,9 @@ function Orbs() {
   );
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    FLOATING PARTICLES
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function ParticleField() {
   const particles = useMemo(() => {
     const rng = seededRandom(42);
@@ -126,9 +126,9 @@ function ParticleField() {
   );
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    ORBITING SERVICE BADGES
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 type OrbitBadge = {
   label: string;
   Icon: React.ElementType;
@@ -185,9 +185,9 @@ function OrbitingBadges({ badges }: { badges: OrbitBadge[] }) {
   );
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    MARQUEE TICKER
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function Marquee({ items }: { items: string[] }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -223,9 +223,9 @@ function Marquee({ items }: { items: string[] }) {
   );
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SERVICE BENTO GRID
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const services = [
   { label: "Web Development", icon: Globe, color: "#3B82F6", desc: "Custom sites" },
   { label: "App Development", icon: Code2, color: "#06B6D4", desc: "Native & cross-platform" },
@@ -271,9 +271,9 @@ function ServiceBento() {
   );
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    TYPEWRITER HOOK (no setState in effect body)
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function useTypewriter(text: string, speedMs: number = 30, startDelay: number = 800) {
   const [displayed, setDisplayed] = useState("");
   const [started, setStarted] = useState(false);
@@ -308,9 +308,9 @@ function useTypewriter(text: string, speedMs: number = 30, startDelay: number = 
   return displayed;
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    LIVE COUNTER HOOK
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function useCountUp(end: number, duration: number = 2000, startDelay: number = 500) {
   const [count, setCount] = useState(0);
 
@@ -332,9 +332,9 @@ function useCountUp(end: number, duration: number = 2000, startDelay: number = 5
   return count;
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    SCROLL REVEAL WRAPPER
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function ScrollReveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
     <motion.div
@@ -349,9 +349,9 @@ function ScrollReveal({ children, delay = 0, className = "" }: { children: React
   );
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    TESTIMONIAL CARD
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const testimonials = [
   { name: "Sarah O.", role: "E-commerce Owner", text: "Built our store in 10 days. Sales up 300%.", rating: 5 },
   { name: "James K.", role: "Tech Startup CEO", text: "AI automation saved us 40 hours/week.", rating: 5 },
@@ -387,9 +387,9 @@ function TestimonialCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
   );
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    PROCESS STEPS
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const processSteps = [
   { step: "01", title: "Discovery Call", desc: "Free 30-min strategy session to map your goals.", icon: MessageCircle },
   { step: "02", title: "Custom Proposal", desc: "Detailed scope, timeline & pricing within 24hrs.", icon: Shield },
@@ -427,14 +427,14 @@ function ProcessSteps() {
   );
 }
 
-/* ───────────────────────────────
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    FEATURE HIGHLIGHTS
-   ─────────────────────────────── */
+   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const features = [
   { icon: Clock, title: "2-Week Delivery", desc: "Rapid prototyping to live deployment" },
   { icon: Shield, title: "Insured Imports", desc: "Full coverage on all global shipments" },
   { icon: Users, title: "Dedicated Team", desc: "Your own project manager & dev squad" },
-  { icon: Award, title: "CAC Registered", desc: "RC 9580371 · Fully compliant & trusted" },
+  { icon: Award, title: "CAC Registered", desc: "RC 9580371 Â· Fully compliant & trusted" },
 ];
 
 function FeatureHighlights() {
@@ -463,9 +463,9 @@ function FeatureHighlights() {
   );
 }
 
-/* ════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    MAIN HERO COMPONENT
-   ════════════════════════════════ */
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 export function Hero() {
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);
@@ -511,7 +511,7 @@ export function Hero() {
 
   const headlineWords = ["We", "Build", "Digital", "Empires"];
   const typewriterText = useTypewriter(
-    "Websites · Apps · Plugins · AI · Marketing · Design · Imports · Property",
+    "Websites Â· Apps Â· Plugins Â· AI Â· Marketing Â· Design Â· Imports Â· Property",
     25,
     1200
   );
@@ -521,7 +521,7 @@ export function Hero() {
 
   return (
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-[#030305]">
-      {/* ── Video background with parallax ── */}
+      {/* â”€â”€ Video background with parallax â”€â”€ */}
       <motion.div
         className="absolute inset-0"
         style={{ x: bgShiftX, y: bgShiftY }}
@@ -536,19 +536,19 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* ── Grid overlay ── */}
+      {/* â”€â”€ Grid overlay â”€â”€ */}
       <div className="absolute inset-0 opacity-60 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-      {/* ── Ambient orbs ── */}
+      {/* â”€â”€ Ambient orbs â”€â”€ */}
       <Orbs />
 
-      {/* ── Floating particles ── */}
+      {/* â”€â”€ Floating particles â”€â”€ */}
       <ParticleField />
 
-      {/* ── Main content ── */}
+      {/* â”€â”€ Main content â”€â”€ */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 lg:pt-32 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* ═══════ LEFT COLUMN ═══════ */}
+          {/* â•â•â•â•â•â•â• LEFT COLUMN â•â•â•â•â•â•â• */}
           <div className="space-y-8 lg:pt-8">
             {/* Trust badge */}
             <motion.div
@@ -562,7 +562,7 @@ export function Hero() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
               </span>
               <span className="text-[11px] text-white/60 font-medium tracking-wide">
-                CAC Registered · RC 9580371 · SMEDAN Certified
+                CAC Registered Â· RC 9580371 Â· SMEDAN Certified
               </span>
             </motion.div>
 
@@ -613,7 +613,7 @@ export function Hero() {
               className="text-white/40 text-sm leading-relaxed max-w-lg"
             >
               DMULTICHOICE is a full-service digital studio and procurement partner. 
-              From enterprise web platforms to AI-powered automation and insured global imports — 
+              From enterprise web platforms to AI-powered automation and insured global imports â€” 
               we engineer solutions that scale.
             </motion.p>
 
@@ -671,7 +671,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* ═══════ RIGHT COLUMN ═══════ */}
+          {/* â•â•â•â•â•â•â• RIGHT COLUMN â•â•â•â•â•â•â• */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -731,7 +731,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* ═══════ BOTTOM SECTION ═══════ */}
+        {/* â•â•â•â•â•â•â• BOTTOM SECTION â•â•â•â•â•â•â• */}
         <div className="mt-16 lg:mt-20 space-y-6">
           {/* Trust stats bar with animated counters */}
           <motion.div
@@ -762,7 +762,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* ═══════ FEATURE HIGHLIGHTS (scroll reveal) ═══════ */}
+      {/* â•â•â•â•â•â•â• FEATURE HIGHLIGHTS (scroll reveal) â•â•â•â•â•â•â• */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <ScrollReveal>
           <div className="text-center mb-8">
@@ -773,7 +773,7 @@ export function Hero() {
         <FeatureHighlights />
       </div>
 
-      {/* ═══════ PROCESS STEPS (scroll reveal) ═══════ */}
+      {/* â•â•â•â•â•â•â• PROCESS STEPS (scroll reveal) â•â•â•â•â•â•â• */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <ScrollReveal>
           <div className="text-center mb-8">
@@ -784,7 +784,7 @@ export function Hero() {
         <ProcessSteps />
       </div>
 
-      {/* ═══════ TESTIMONIALS (scroll reveal) ═══════ */}
+      {/* â•â•â•â•â•â•â• TESTIMONIALS (scroll reveal) â•â•â•â•â•â•â• */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <ScrollReveal>
           <div className="text-center mb-8">
@@ -799,7 +799,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* ── Global keyframes ── */}
+      {/* â”€â”€ Global keyframes â”€â”€ */}
       <style>{`
         @keyframes shimmer {
           0% { background-position: 200% center; }
