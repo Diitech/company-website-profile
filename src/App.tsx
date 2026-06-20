@@ -18,10 +18,14 @@ import VideoGalleryPage from './pages/videos/VideoGalleryPage';
 
 // Services Pages
 import ServiceWebDev from './pages/services/ServiceWebDev';
+import ServiceWebManagement from './pages/services/ServiceWebManagement';
 import ServiceOTA from './pages/services/ServiceOTA';
+import ServiceSocialMedia from './pages/services/ServiceSocialMedia';
 import ServiceSourcing from './pages/services/ServiceSourcing';
 import ServiceTraining from './pages/services/ServiceTraining';
 import ServiceAI from './pages/services/ServiceAI';
+import ServiceDigitalGrowth from './pages/services/ServiceDigitalGrowth';
+import ServiceSupplierVerification from './pages/services/ServiceSupplierVerification';
 
 // Other Pages
 import RegistrationPage from './pages/RegistrationPage';
@@ -57,10 +61,14 @@ function App() {
 
             {/* Services */}
             <Route path="/services/website-development" element={<ServiceWebDev />} />
+            <Route path="/services/website-management" element={<ServiceWebManagement />} />
             <Route path="/services/ota-management" element={<ServiceOTA />} />
-            <Route path="/services/international-sourcing" element={<ServiceSourcing />} />
-            <Route path="/services/training" element={<ServiceTraining />} />
+            <Route path="/services/social-media" element={<ServiceSocialMedia />} />
             <Route path="/services/ai-automation" element={<ServiceAI />} />
+            <Route path="/services/digital-growth" element={<ServiceDigitalGrowth />} />
+            <Route path="/services/international-sourcing" element={<ServiceSourcing />} />
+            <Route path="/services/supplier-verification" element={<ServiceSupplierVerification />} />
+            <Route path="/services/training" element={<ServiceTraining />} />
 
             {/* Other Pages */}
             <Route path="/register" element={<RegistrationPage />} />

@@ -31,7 +31,7 @@ const responses: Record<string, string> = {
   website: "We build modern, responsive websites using React, Next.js, and more. Delivery guaranteed within 2 weeks. Includes SEO, mobile optimization, and CMS integration.",
   sourcing: "We source products from verified suppliers across 8 countries. Full service includes: supplier verification, price negotiation, quality inspection, shipping, and customs clearance.",
   training: "We offer 3 programs: Digital Skills Mastery (12 wks, ₦150k), Import/Export Training (8 wks, ₦120k), and Hotel Digital Management (6 wks, ₦100k). All include certification.",
-  contact: "You can reach us at Deliamutiempire@gmail.com or call +234 815 848 4621. Our team is available Mon-Fri, 9AM-6PM.",
+  contact: "You can reach us at support@dmultichoice.com, call 🇳🇬 +234 815 848 4621 or 🇺🇸 +1 (906) 430-2144. Our team is available Mon-Fri, 9AM-6PM.",
 };
 
 function getResponse(input: string): string {

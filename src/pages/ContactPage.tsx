@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MapPin, ArrowLeft } from 'lucide-react';
+import { MapPin, ArrowLeft, Phone, Mail } from 'lucide-react';
 
 function ContactPage() {
   return (
@@ -8,7 +8,7 @@ function ContactPage() {
       <title>Contact Us | DMULTICHOICE Nigeria</title>
       <meta
         name="description"
-        content="Contact DMULTICHOICE for digital solutions, international sourcing, and training services. Lagos, Nigeria. Email: Deliamutiempire@gmail.com, Phone: +234 815 848 4621"
+        content="Contact DMULTICHOICE for digital solutions, international sourcing, and training services. Lagos, Nigeria. Email: support@dmultichoice.com, Phone (Nigeria): +234 815 848 4621, Phone (U.S.): +1 (906) 430-2144"
       />
       <meta
         name="keywords"
@@ -33,6 +33,57 @@ function ContactPage() {
               Have a question or ready to get started? Fill the form below and we’ll get back to you.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Details */}
+      <section className="pb-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                icon: Phone,
+                label: "Call us (Nigeria)",
+                value: "🇳🇬 +234 815 848 4621",
+                href: "tel:+2348158484621",
+              },
+              {
+                icon: Phone,
+                label: "Call us (U.S.)",
+                value: "🇺🇸 +1 (906) 430-2144",
+                href: "tel:+19064302144",
+              },
+              {
+                icon: Mail,
+                label: "Email us",
+                value: "support@dmultichoice.com",
+                href: "mailto:support@dmultichoice.com",
+              },
+              {
+                icon: MapPin,
+                label: "Visit us",
+                value: "Victoria Island, Lagos",
+                href: "https://maps.google.com/?q=Victoria+Island+Lagos+Nigeria",
+              },
+            ].map((item, i) => (
+              <motion.a
+                key={item.label}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+                className="group bg-glass rounded-2xl p-5 border border-white/10 hover:border-blue-500/30 transition-all"
+              >
+                <div className="w-11 h-11 rounded-xl bg-blue-500/10 flex items-center justify-center mb-3 group-hover:bg-blue-500/20 transition-colors">
+                  <item.icon className="w-5 h-5 text-blue-400" />
+                </div>
+                <p className="text-white/40 text-xs mb-1">{item.label}</p>
+                <p className="text-white font-semibold text-sm break-words">{item.value}</p>
+              </motion.a>
+            ))}
+          </div>
         </div>
       </section>
 

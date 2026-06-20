@@ -272,7 +272,7 @@ export function Footer() {
     { name: "OTA Management", href: "/services/ota-management" },
     {
       name: "Social Media Management",
-      href: "/services/social-media-management",
+      href: "/services/social-media",
     },
     { name: "AI Solutions", href: "/services/ai-automation" },
     {
@@ -323,8 +323,22 @@ export function Footer() {
             className="lg:col-span-4"
           >
             <Link to="/" className="inline-flex items-center gap-3 mb-6 group">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-white/[0.08] flex items-center justify-center group-hover:border-blue-500/30 transition-colors">
-                <Shield className="w-6 h-6 text-blue-400" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 border border-white/[0.08] flex items-center justify-center overflow-hidden group-hover:border-blue-500/30 transition-colors">
+                <img
+                  src="/logo.png"
+                  alt="DMULTICHOICE"
+                  className="w-9 h-9 object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                    const fallback = (e.target as HTMLImageElement)
+                      .nextElementSibling as HTMLElement | null;
+                    if (fallback) fallback.style.display = "block";
+                  }}
+                />
+                <Shield
+                  className="w-6 h-6 text-blue-400"
+                  style={{ display: "none" }}
+                />
               </div>
               <span className="text-2xl font-black text-white tracking-tight">
                 DMULTICHOICE
@@ -414,20 +428,26 @@ export function Footer() {
             <ul className="space-y-4">
               <ContactItem
                 icon={Mail}
-                text="Deliamutiempire@gmail.com"
-                href="mailto:Deliamutiempire@gmail.com"
+                text="support@dmultichoice.com"
+                href="mailto:support@dmultichoice.com"
                 delay={0.35}
               />
               <ContactItem
                 icon={Phone}
-                text="+234 815 848 4621"
+                text="🇳🇬 +234 815 848 4621"
                 href="tel:+2348158484621"
                 delay={0.4}
               />
               <ContactItem
+                icon={Phone}
+                text="🇺🇸 +1 (906) 430-2144"
+                href="tel:+19064302144"
+                delay={0.45}
+              />
+              <ContactItem
                 icon={MapPin}
                 text="18 Awoniyi Elemo St, Victoria Island, Lagos"
-                delay={0.45}
+                delay={0.5}
               />
             </ul>
 

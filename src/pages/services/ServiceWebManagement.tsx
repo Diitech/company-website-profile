@@ -1,49 +1,49 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Bot, Check, MessageSquare, Mail, Workflow, Target, BarChart3, Zap, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Globe, Check, Activity, DatabaseBackup, ShieldCheck, Gauge, FileText, Wrench, ArrowRight } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
 const features = [
-  { icon: MessageSquare, title: 'Custom AI Chatbots', desc: 'Smart assistants that answer customers 24/7 on your website, WhatsApp, and socials.' },
-  { icon: Mail, title: 'Email Automation', desc: 'Automated sequences that nurture leads and follow up without you lifting a finger.' },
-  { icon: Workflow, title: 'CRM Workflow Integration', desc: 'Connect your tools so data flows automatically — no more manual copy-paste.' },
-  { icon: Target, title: 'Lead Scoring & Nurturing', desc: 'Automatically rank and warm up leads so your team focuses on the hottest ones.' },
-  { icon: BarChart3, title: 'Analytics Dashboard', desc: 'See exactly how your automations perform with clear, real-time reporting.' },
-  { icon: Zap, title: 'Workflow Automation', desc: 'Cut manual work by up to 70% by automating repetitive day-to-day tasks.' },
+  { icon: Activity, title: '24/7 Uptime Monitoring', desc: 'We watch your site around the clock and act the moment anything goes down.' },
+  { icon: DatabaseBackup, title: 'Daily Automated Backups', desc: 'Your data is backed up every day, so you can restore in minutes — not days.' },
+  { icon: ShieldCheck, title: 'Security Patch Management', desc: 'Plugins, themes, and core kept patched against the latest threats.' },
+  { icon: Gauge, title: 'Performance Optimization', desc: 'Caching, image optimization, and tuning to keep load times lightning fast.' },
+  { icon: FileText, title: 'Monthly Reports', desc: 'Clear monthly reports on uptime, speed, security, and updates done.' },
+  { icon: Wrench, title: 'Content Update Support', desc: 'Need text, images, or pages changed? Send it over — we handle it for you.' },
 ];
 
 const packages = [
   {
-    name: 'Starter Bot',
-    description: 'For businesses getting started with automation',
-    features: ['1 AI chatbot', 'Website or WhatsApp', 'FAQ & lead capture', 'Basic email autoresponder', '1 month support'],
+    name: 'Care',
+    description: 'Essential upkeep for small sites',
+    features: ['Uptime monitoring', 'Weekly backups', 'Core & plugin updates', 'Monthly report', 'Email support'],
     highlighted: false,
   },
   {
-    name: 'Automation Suite',
-    description: 'For growing teams ready to scale',
-    features: ['Multi-channel chatbot', 'Email automation sequences', 'CRM integration', 'Lead scoring', 'Analytics dashboard', '3 months support'],
+    name: 'Care Plus',
+    description: 'For business sites that need to stay sharp',
+    features: ['24/7 monitoring', 'Daily backups', 'Security hardening', 'Performance optimization', '2 hrs content updates/mo', 'Priority support'],
     highlighted: true,
   },
   {
-    name: 'Enterprise AI',
-    description: 'For large operations with custom needs',
-    features: ['Custom AI workflows', 'Multiple integrations', 'Advanced lead nurturing', 'Dedicated specialist', 'Custom dashboards', 'Priority support'],
+    name: 'Managed Pro',
+    description: 'Full hands-off management for busy teams',
+    features: ['Everything in Care Plus', 'Unlimited content updates', 'Staging environment', 'Quarterly strategy review', 'Dedicated manager', 'Same-day support'],
     highlighted: false,
   },
 ];
 
-function ServiceAI() {
+function ServiceWebManagement() {
   return (
     <div className="pt-24 pb-16">
-      <title>AI & Automation Services | DMULTICHOICE Nigeria</title>
-      <meta name="description" content="AI chatbots, automated customer support, and business workflow automation. Cut manual work by up to 70% with smart automation built for your business." />
-      <meta name="keywords" content="AI automation Nigeria, AI chatbot, business automation, workflow automation Lagos, customer support automation" />
+      <title>Website Management & Maintenance | DMULTICHOICE Nigeria</title>
+      <meta name="description" content="Website management and maintenance in Nigeria — security monitoring, daily backups, updates, and performance optimization. We keep your site fast, secure, and always online." />
+      <meta name="keywords" content="website management Nigeria, website maintenance, website security, site backups, performance optimization Lagos" />
 
       {/* Hero */}
       <section className="relative py-16">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-500/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/10 to-transparent" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <Link to="/" className="inline-flex items-center gap-2 text-white/60 hover:text-white mb-6 transition-colors">
@@ -51,13 +51,13 @@ function ServiceAI() {
               Back to Home
             </Link>
 
-            <Badge className="bg-amber-500/20 text-amber-400 border-0 mb-4">AI Solutions</Badge>
+            <Badge className="bg-cyan-500/20 text-cyan-400 border-0 mb-4">Digital Solutions</Badge>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              AI & Automation
+              Website Management
             </h1>
             <p className="text-xl text-white/70 max-w-2xl">
-              AI chatbots, automated customer support, and business workflow automation.
-              Cut manual work by up to 70% and let smart systems run your busywork for you.
+              Security monitoring, regular updates, backup protection, and performance optimization.
+              We keep your site fast, secure, and always online — so you never have to worry.
             </p>
           </motion.div>
         </div>
@@ -68,12 +68,12 @@ function ServiceAI() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 gap-6">
             {[
-              { value: '70%', label: 'Less Manual Work' },
-              { value: '24/7', label: 'Always-On Support' },
+              { value: '80+', label: 'Sites Managed' },
               { value: '99%', label: 'Client Satisfaction' },
+              { value: '24/7', label: 'Monitoring' },
             ].map((s) => (
               <div key={s.label} className="text-center bg-glass rounded-2xl p-6 border border-white/10">
-                <div className="text-3xl font-bold text-amber-400 mb-1">{s.value}</div>
+                <div className="text-3xl font-bold text-cyan-400 mb-1">{s.value}</div>
                 <div className="text-white/50 text-sm">{s.label}</div>
               </div>
             ))}
@@ -85,8 +85,8 @@ function ServiceAI() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">What We Automate</h2>
-            <p className="text-white/60 max-w-xl mx-auto">Smart tools that save time, capture more leads, and delight your customers</p>
+            <h2 className="text-3xl font-bold text-white mb-4">What's Included</h2>
+            <p className="text-white/60 max-w-xl mx-auto">Everything your website needs to stay secure, fast, and online</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -96,10 +96,10 @@ function ServiceAI() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="bg-glass rounded-2xl p-6 border border-white/10 hover:border-amber-500/30 transition-all"
+                className="bg-glass rounded-2xl p-6 border border-white/10 hover:border-cyan-500/30 transition-all"
               >
-                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-amber-400" />
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-cyan-400" />
                 </div>
                 <h3 className="text-white font-bold mb-2">{feature.title}</h3>
                 <p className="text-white/60 text-sm">{feature.desc}</p>
@@ -113,8 +113,8 @@ function ServiceAI() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4">Automation Packages</h2>
-            <p className="text-white/60 max-w-xl mx-auto">Start small or go all-in — there's a plan for every business</p>
+            <h2 className="text-3xl font-bold text-white mb-4">Care Plans</h2>
+            <p className="text-white/60 max-w-xl mx-auto">Pick the level of care your website deserves</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -124,9 +124,9 @@ function ServiceAI() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className={`rounded-2xl p-6 border ${pkg.highlighted ? 'bg-gradient-to-b from-amber-600/20 to-orange-600/20 border-amber-500/30' : 'bg-glass border-white/10'}`}
+                className={`rounded-2xl p-6 border ${pkg.highlighted ? 'bg-gradient-to-b from-cyan-600/20 to-blue-600/20 border-cyan-500/30' : 'bg-glass border-white/10'}`}
               >
-                {pkg.highlighted && <Badge className="bg-amber-500 text-white border-0 mb-4">Most Popular</Badge>}
+                {pkg.highlighted && <Badge className="bg-cyan-500 text-white border-0 mb-4">Most Popular</Badge>}
                 <h3 className="text-2xl font-bold text-white mb-2">{pkg.name}</h3>
                 <p className="text-white/60 text-sm mb-6">{pkg.description}</p>
                 <ul className="space-y-3 mb-8">
@@ -151,15 +151,15 @@ function ServiceAI() {
       {/* CTA */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="bg-gradient-to-r from-amber-600/20 to-orange-600/20 rounded-3xl p-8 lg:p-12 border border-white/10 text-center">
-            <Bot className="w-12 h-12 text-amber-400 mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-white mb-4">Let AI Do the Busywork</h2>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="bg-gradient-to-r from-cyan-600/20 to-blue-600/20 rounded-3xl p-8 lg:p-12 border border-white/10 text-center">
+            <Globe className="w-12 h-12 text-cyan-400 mx-auto mb-6" />
+            <h2 className="text-3xl font-bold text-white mb-4">Let Us Handle the Tech</h2>
             <p className="text-white/60 max-w-xl mx-auto mb-8">
-              Book a free automation consultation and discover where AI can save your business time and money.
+              Stop worrying about updates, backups, and security. We'll keep your site running perfectly.
             </p>
             <Link to="/register">
               <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full px-8">
-                Book a Free Consult
+                Start Managing My Site
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
@@ -170,4 +170,4 @@ function ServiceAI() {
   );
 }
 
-export default ServiceAI;
+export default ServiceWebManagement;

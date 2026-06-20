@@ -274,40 +274,6 @@ function ServiceBento() {
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    TYPEWRITER HOOK (no setState in effect body)
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-function useTypewriter(text: string, speedMs: number = 30, startDelay: number = 800) {
-  const [displayed, setDisplayed] = useState("");
-  const [started, setStarted] = useState(false);
-  const indexRef = useRef(0);
-  const hasResetRef = useRef(false);
-
-  useEffect(() => {
-    const startTimer = setTimeout(() => setStarted(true), startDelay);
-    return () => clearTimeout(startTimer);
-  }, [startDelay]);
-
-  useEffect(() => {
-    if (!started) return;
-
-    if (!hasResetRef.current) {
-      indexRef.current = 0;
-      hasResetRef.current = true;
-    }
-
-    const interval = setInterval(() => {
-      if (indexRef.current < text.length) {
-        setDisplayed(text.slice(0, indexRef.current + 1));
-        indexRef.current++;
-      } else {
-        clearInterval(interval);
-      }
-    }, speedMs);
-
-    return () => clearInterval(interval);
-  }, [started, text, speedMs]);
-
-  return displayed;
-}
-
 /* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
    LIVE COUNTER HOOK
    â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -510,11 +476,16 @@ export function Hero() {
   ];
 
   const headlineWords = ["We", "Build", "Digital", "Empires"];
-  const typewriterText = useTypewriter(
-    "Websites Â· Apps Â· Plugins Â· AI Â· Marketing Â· Design Â· Imports Â· Property",
-    25,
-    1200
-  );
+  const heroServices = [
+    { label: "Website Development", color: "#3B82F6" },
+    { label: "Mobile Apps", color: "#06B6D4" },
+    { label: "Custom Plugins", color: "#8B5CF6" },
+    { label: "AI Solutions", color: "#F59E0B" },
+    { label: "Digital Marketing", color: "#10B981" },
+    { label: "Graphic Design", color: "#EC4899" },
+    { label: "Import & Export Services", color: "#14B8A6" },
+    { label: "Property Management", color: "#6366F1" },
+  ];
 
   const projectCount = useCountUp(100, 2500, 800);
   const countryCount = useCountUp(5, 2000, 1000);
@@ -591,18 +562,49 @@ export function Hero() {
               ))}
             </h1>
 
-            {/* Subheadline with typewriter */}
+            {/* Subheadline — animated service chips */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="flex items-center gap-3"
             >
-              <div className="h-px w-8 bg-gradient-to-r from-white/20 to-transparent" />
-              <p className="text-white/50 text-sm md:text-[15px] font-medium tracking-wide">
-                {typewriterText}
-                <span className="inline-block w-[2px] h-4 bg-emerald-400/80 ml-0.5 animate-blink align-middle" />
-              </p>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8 bg-gradient-to-r from-white/20 to-transparent" />
+                <span className="text-[11px] font-semibold tracking-[0.2em] uppercase bg-gradient-to-r from-cyan-300 via-blue-300 to-emerald-300 bg-clip-text text-transparent">
+                  What We Do
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-2 max-w-xl">
+                {heroServices.map((s, i) => (
+                  <motion.span
+                    key={s.label}
+                    initial={{ opacity: 0, y: 14, scale: 0.85 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.9 + i * 0.07,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    whileHover={{ scale: 1.08, y: -3 }}
+                    className="group relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border backdrop-blur-sm text-[12px] font-semibold cursor-default transition-shadow duration-300"
+                    style={{
+                      color: s.color,
+                      borderColor: `${s.color}33`,
+                      background: `${s.color}14`,
+                    }}
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full animate-pulse"
+                      style={{ background: s.color, boxShadow: `0 0 8px ${s.color}` }}
+                    />
+                    {s.label}
+                    <span
+                      className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-300 -z-10"
+                      style={{ background: `${s.color}40` }}
+                    />
+                  </motion.span>
+                ))}
+              </div>
             </motion.div>
 
             {/* Description */}

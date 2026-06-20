@@ -79,18 +79,25 @@ export function CTA() {
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <a
-              href="mailto:Deliamutiempire@gmail.com"
+              href="mailto:support@dmultichoice.com"
               className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
             >
               <Mail className="w-5 h-5 text-blue-400" />
-              <span>Deliamutiempire@gmail.com</span>
+              <span>support@dmultichoice.com</span>
             </a>
             <a
               href="tel:+2348158484621"
               className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
             >
               <Phone className="w-5 h-5 text-blue-400" />
-              <span>+234 815 848 4621</span>
+              <span>🇳🇬 +234 815 848 4621</span>
+            </a>
+            <a
+              href="tel:+19064302144"
+              className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+            >
+              <Phone className="w-5 h-5 text-blue-400" />
+              <span>🇺🇸 +1 (906) 430-2144</span>
             </a>
           </motion.div>
         </motion.div>
