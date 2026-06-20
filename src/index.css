@@ -5,54 +5,33 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 222 47% 4%;
-    --background-secondary: 222 40% 6%;
-    --foreground: 0 0% 100%;
-    --card: 222 35% 6%;
-    --card-foreground: 0 0% 100%;
-    --popover: 222 35% 6%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 222 47% 4%;
-    --secondary: 222 30% 10%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 222 20% 14%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 222 25% 14%;
-    --input: 222 25% 14%;
-    --ring: 217 91% 60%;
-    --radius: 0.75rem;
-    --color-glow-blue: 37 99 235;
-    --color-glow-cyan: 6 182 212;
-    --color-glow-violet: 139 92 246;
-    --color-glow-emerald: 16 185 129;
-  }
-
-  .light {
-    --background: 0 0% 98%;
-    --background-secondary: 0 0% 96%;
-    --foreground: 222 47% 6%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 6%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 6%;
-    --primary: 222 47% 6%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 92%;
-    --secondary-foreground: 222 47% 6%;
-    --muted: 0 0% 90%;
-    --muted-foreground: 222 10% 40%;
-    --accent: 217 91% 50%;
-    --accent-foreground: 0 0% 100%;
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 217 91% 50%;
-  }
+ :root {
+  --background: 222 64% 14%;
+  --background-secondary: 222 55% 18%;
+  --foreground: 0 0% 100%;
+  --card: 222 50% 16%;
+  --card-foreground: 0 0% 100%;
+  --popover: 222 50% 16%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 222 64% 14%;
+  --secondary: 222 45% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 222 30% 24%;
+  --muted-foreground: 0 0% 70%;
+  --accent: 46 65% 52%;
+  --accent-foreground: 222 64% 14%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 222 35% 22%;
+  --input: 222 35% 22%;
+  --ring: 46 65% 52%;
+  --radius: 0.75rem;
+  --color-glow-blue: 37 99 235;
+  --color-glow-cyan: 6 182 212;
+  --color-glow-violet: 139 92 246;
+  --color-glow-emerald: 16 185 129;
+}
 }
 
 @layer base {
