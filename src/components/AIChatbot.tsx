@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Bot, ArrowRight, Sparkles } from 'lucide-react';
+import { MessageCircle, X, Send, Bot, Sparkles } from 'lucide-react';
 
-const WHATSAPP_NUMBER = "2348158484621";
+const WA_NIGERIA = "2348158484621";
+const WA_US = "19064302144";
 
 interface Message {
   id: string;
@@ -80,28 +81,82 @@ export function AIChatbot() {
     }, TYPING_DELAY);
   };
 
-  const handleWhatsAppRedirect = () => {
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, '_blank', 'noopener,noreferrer');
+  const openWhatsApp = (number: string) => {
+    window.open(`https://wa.me/${number}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
     <>
       {/* Chat Button */}
-      <motion.button
+      <motion.div
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2, type: "spring", stiffness: 260, damping: 20 }}
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 shadow-[0_0_30px_rgba(59,130,246,0.3)] flex items-center justify-center hover:scale-105 transition-transform"
+        className="fixed bottom-6 right-6 z-40"
       >
-        {isOpen ? (
-          <X className="w-6 h-6 text-white" />
-        ) : (
-          <Bot className="w-6 h-6 text-white" />
-        )}
-        {/* Pulse ring */}
-        <span className="absolute inset-0 rounded-full animate-ping bg-blue-400/20" />
-      </motion.button>
+        {/* Hover label */}
+        <AnimatePresence>
+          {!isOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: 10, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 10, scale: 0.9 }}
+              transition={{ delay: 0.4 }}
+              className="absolute right-[4.25rem] top-1/2 -translate-y-1/2 whitespace-nowrap pointer-events-none hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0a0a0f]/90 border border-white/10 backdrop-blur-md shadow-lg"
+            >
+              <span className="text-xs font-medium text-white/80">Ask our AI</span>
+              <Sparkles className="w-3 h-3 text-blue-400" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Open AI assistant"
+          className="group relative w-14 h-14 rounded-full flex items-center justify-center"
+        >
+          {/* Rotating gradient ring */}
+          {!isOpen && (
+            <motion.span
+              aria-hidden
+              animate={{ rotate: 360 }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              className="absolute -inset-[3px] rounded-full"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, #3B82F6, #06B6D4, #8B5CF6, #3B82F6)",
+              }}
+            />
+          )}
+          {/* Outer glow + ping */}
+          <span className="absolute inset-0 rounded-full bg-blue-500/40 blur-xl group-hover:bg-blue-500/60 transition-colors" />
+          {!isOpen && <span className="absolute inset-0 rounded-full bg-cyan-400/20 animate-ping" />}
+
+          {/* Core */}
+          <span className="relative w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 via-indigo-500 to-cyan-500 flex items-center justify-center shadow-lg group-hover:scale-105 active:scale-95 transition-transform">
+            <AnimatePresence mode="wait">
+              {isOpen ? (
+                <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <X className="w-6 h-6 text-white" />
+                </motion.span>
+              ) : (
+                <motion.span key="bot" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <Bot className="w-6 h-6 text-white" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+            {/* Sparkle accent */}
+            {!isOpen && <Sparkles className="absolute -top-1 -left-1 w-3.5 h-3.5 text-amber-300 animate-pulse" />}
+          </span>
+
+          {/* Notification badge */}
+          {!isOpen && (
+            <span className="absolute -top-0.5 -right-0.5 w-5 h-5 rounded-full bg-rose-500 border-2 border-[#030305] flex items-center justify-center text-[9px] font-bold text-white shadow">
+              1
+            </span>
+          )}
+        </button>
+      </motion.div>
 
       {/* Chat Window */}
       <AnimatePresence>
@@ -113,22 +168,28 @@ export function AIChatbot() {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="fixed bottom-24 right-6 z-40 w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-8rem)] rounded-2xl bg-[#0a0a0f]/98 backdrop-blur-2xl border border-white/[0.08] shadow-2xl flex flex-col overflow-hidden"
           >
+            {/* Animated gradient top accent */}
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500" />
+
             {/* Header */}
-            <div className="shrink-0 px-5 py-4 border-b border-white/[0.06] bg-gradient-to-r from-blue-500/10 to-cyan-500/5">
+            <div className="shrink-0 px-5 py-4 border-b border-white/[0.06] bg-gradient-to-r from-blue-500/10 via-indigo-500/5 to-cyan-500/5">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-white/[0.08] flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-blue-400" />
+                <div className="relative">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/25">
+                    <Bot className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#0a0a0f]" />
                 </div>
-                <div className="flex-1">
-                  <div className="text-sm font-bold text-white">DMULTICHOICE AI</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-bold text-white truncate">DMULTICHOICE Assistant</div>
                   <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-[10px] text-emerald-400/80">Online</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                    <span className="text-[10px] text-white/50 truncate">AI support · Human chat available</span>
                   </div>
                 </div>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-white/40 hover:text-white transition-colors"
+                  className="w-7 h-7 rounded-lg bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-white/40 hover:text-white transition-colors shrink-0"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -145,10 +206,10 @@ export function AIChatbot() {
                   className={`flex ${msg.isUser ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+                    className={`max-w-[85%] px-4 py-2.5 text-sm leading-relaxed shadow-sm ${
                       msg.isUser
-                        ? 'bg-blue-500/20 border border-blue-500/20 text-white/90'
-                        : 'bg-white/[0.04] border border-white/[0.06] text-white/70'
+                        ? 'rounded-2xl rounded-tr-sm bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-blue-500/20'
+                        : 'rounded-2xl rounded-tl-sm bg-white/[0.04] border border-white/[0.06] text-white/75'
                     }`}
                   >
                     {msg.text}
@@ -225,15 +286,27 @@ export function AIChatbot() {
                 </button>
               </div>
 
-              {/* WhatsApp CTA */}
-              <button
-                onClick={handleWhatsAppRedirect}
-                className="mt-2 w-full flex items-center justify-center gap-2 py-2 rounded-lg bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-[11px] font-medium hover:bg-[#25D366]/15 transition-colors"
-              >
-                <MessageCircle className="w-3.5 h-3.5" />
-                Chat directly on WhatsApp
-                <ArrowRight className="w-3 h-3" />
-              </button>
+              {/* WhatsApp CTA — Nigeria & US */}
+              <div className="mt-2">
+                <div className="flex items-center justify-center gap-1.5 text-[#25D366] text-[10px] font-medium mb-1.5">
+                  <MessageCircle className="w-3 h-3" />
+                  Chat directly on WhatsApp
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={() => openWhatsApp(WA_NIGERIA)}
+                    className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-[11px] font-semibold hover:bg-[#25D366]/20 transition-colors"
+                  >
+                    🇳🇬 Nigeria
+                  </button>
+                  <button
+                    onClick={() => openWhatsApp(WA_US)}
+                    className="flex items-center justify-center gap-1.5 py-2 rounded-lg bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-[11px] font-semibold hover:bg-[#25D366]/20 transition-colors"
+                  >
+                    🇺🇸 USA
+                  </button>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

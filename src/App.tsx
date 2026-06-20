@@ -1,41 +1,55 @@
+import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './components/ThemeProvider';
 import { Navbar } from './sections/Navbar';
 import { Footer } from './sections/Footer';
+import { AIChatbot } from './components/AIChatbot';
+import { ScrollToTop } from './components/ScrollToTop';
+
+// Home (eager — it's the landing page / LCP route)
 import HomePage from './pages/HomePage';
 
-// Blog Pages
-import BlogIndex from './pages/blog/BlogIndex';
-import BlogPost1 from './pages/blog/BlogPost1';
-import BlogPost2 from './pages/blog/BlogPost2';
-import BlogPost3 from './pages/blog/BlogPost3';
-import BlogPost4 from './pages/blog/BlogPost4';
-import BlogPost5 from './pages/blog/BlogPost5';
-import BlogPost6 from './pages/blog/BlogPost6';
+// Blog Pages (lazy)
+const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'));
+const BlogPost1 = lazy(() => import('./pages/blog/BlogPost1'));
+const BlogPost2 = lazy(() => import('./pages/blog/BlogPost2'));
+const BlogPost3 = lazy(() => import('./pages/blog/BlogPost3'));
+const BlogPost4 = lazy(() => import('./pages/blog/BlogPost4'));
+const BlogPost5 = lazy(() => import('./pages/blog/BlogPost5'));
+const BlogPost6 = lazy(() => import('./pages/blog/BlogPost6'));
 
-// Video Pages
-import VideoGalleryPage from './pages/videos/VideoGalleryPage';
+// Video Pages (lazy)
+const VideoGalleryPage = lazy(() => import('./pages/videos/VideoGalleryPage'));
 
-// Services Pages
-import ServiceWebDev from './pages/services/ServiceWebDev';
-import ServiceWebManagement from './pages/services/ServiceWebManagement';
-import ServiceOTA from './pages/services/ServiceOTA';
-import ServiceSocialMedia from './pages/services/ServiceSocialMedia';
-import ServiceSourcing from './pages/services/ServiceSourcing';
-import ServiceTraining from './pages/services/ServiceTraining';
-import ServiceAI from './pages/services/ServiceAI';
-import ServiceDigitalGrowth from './pages/services/ServiceDigitalGrowth';
-import ServiceSupplierVerification from './pages/services/ServiceSupplierVerification';
+// Services Pages (lazy)
+const ServiceWebDev = lazy(() => import('./pages/services/ServiceWebDev'));
+const ServiceWebManagement = lazy(() => import('./pages/services/ServiceWebManagement'));
+const ServiceOTA = lazy(() => import('./pages/services/ServiceOTA'));
+const ServiceSocialMedia = lazy(() => import('./pages/services/ServiceSocialMedia'));
+const ServiceSourcing = lazy(() => import('./pages/services/ServiceSourcing'));
+const ServiceTraining = lazy(() => import('./pages/services/ServiceTraining'));
+const ServiceAI = lazy(() => import('./pages/services/ServiceAI'));
+const ServiceDigitalGrowth = lazy(() => import('./pages/services/ServiceDigitalGrowth'));
+const ServiceSupplierVerification = lazy(() => import('./pages/services/ServiceSupplierVerification'));
 
-// Other Pages
-import RegistrationPage from './pages/RegistrationPage';
-import TeamPage from './pages/TeamPage';
-import WarehousePage from './pages/WarehousePage';
-import PartnersPage from './pages/PartnersPage';
-import ContactPage from './pages/ContactPage';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsConditions from './pages/TermsConditions';
-import AboutPage from './pages/AboutUs';
+// Other Pages (lazy)
+const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
+const TeamPage = lazy(() => import('./pages/TeamPage'));
+const WarehousePage = lazy(() => import('./pages/WarehousePage'));
+const PartnersPage = lazy(() => import('./pages/PartnersPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsConditions = lazy(() => import('./pages/TermsConditions'));
+const AboutPage = lazy(() => import('./pages/AboutUs'));
+
+/* Full-screen fallback shown while a lazy route chunk loads */
+function PageFallback() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background">
+      <div className="w-10 h-10 rounded-full border-2 border-blue-400/30 border-t-blue-400 animate-spin" />
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -43,6 +57,7 @@ function App() {
       <div className="min-h-screen text-foreground overflow-x-hidden bg-background transition-colors duration-500">
         <Navbar />
         <main>
+          <Suspense fallback={<PageFallback />}>
           <Routes>
             {/* Home */}
             <Route path="/" element={<HomePage />} />
@@ -80,8 +95,13 @@ function App() {
             <Route path="/terms" element={<TermsConditions />} />
             <Route path="/about" element={<AboutPage />} />
           </Routes>
+          </Suspense>
         </main>
         <Footer />
+
+        {/* Floating widgets — available on every page */}
+        <ScrollToTop />
+        <AIChatbot />
       </div>
     </ThemeProvider>
   );

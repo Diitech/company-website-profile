@@ -21,12 +21,12 @@ import {
   Maximize2,
 } from "lucide-react";
 
-/* â”€â”€â”€ UTILITIES â”€â”€â”€ */
+/* ─── UTILITIES ─── */
 function cx(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }
 
-/* â”€â”€â”€ MAGNETIC CARD â”€â”€â”€ */
+/* ─── MAGNETIC CARD ─── */
 function MagneticCard({
   children,
   className,
@@ -68,7 +68,7 @@ function MagneticCard({
   );
 }
 
-/* â”€â”€â”€ GALLERY CARD â”€â”€â”€ */
+/* ─── GALLERY CARD ─── */
 function GalleryCard({
   item,
   index,
@@ -225,7 +225,7 @@ function GalleryCard({
   );
 }
 
-/* â”€â”€â”€ LIGHTBOX â”€â”€â”€ */
+/* ─── LIGHTBOX ─── */
 function Lightbox({
   images,
   currentIndex,
@@ -374,7 +374,7 @@ function Lightbox({
   );
 }
 
-/* â”€â”€â”€ CATEGORY HEADER â”€â”€â”€ */
+/* ─── CATEGORY HEADER ─── */
 function CategoryHeader({
   icon: Icon,
   title,
@@ -423,7 +423,7 @@ function CategoryHeader({
   );
 }
 
-/* â”€â”€â”€ TRUST BADGE â”€â”€â”€ */
+/* ─── TRUST BADGE ─── */
 function TrustBadge({ delay }: { delay: number }) {
   return (
     <motion.div
@@ -455,7 +455,7 @@ function TrustBadge({ delay }: { delay: number }) {
   );
 }
 
-/* â”€â”€â”€ MAIN PROOF SECTION â”€â”€â”€ */
+/* ─── MAIN PROOF SECTION ─── */
 export function Proof() {
   const ref = useRef(null);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -690,7 +690,7 @@ export function Proof() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.015)_0%,_transparent_70%)]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* â”€â”€ HEADER â”€â”€ */}
+        {/* ── HEADER ── */}
         <div className="text-center mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -733,7 +733,7 @@ export function Proof() {
           <TrustBadge delay={0.4} />
         </div>
 
-        {/* â”€â”€ CATEGORIES â”€â”€ */}
+        {/* ── CATEGORIES ── */}
         <div ref={ref} className="space-y-20">
           {categories.map((category, catIndex) => (
             <motion.div
@@ -783,7 +783,7 @@ export function Proof() {
           ))}
         </div>
 
-        {/* â”€â”€ BOTTOM CTA â”€â”€ */}
+        {/* ── BOTTOM CTA ── */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -824,7 +824,7 @@ export function Proof() {
         </motion.div>
       </div>
 
-      {/* â”€â”€ LIGHTBOX â”€â”€ */}
+      {/* ── LIGHTBOX ── */}
       <AnimatePresence>
         {lightboxOpen && (
           <Lightbox

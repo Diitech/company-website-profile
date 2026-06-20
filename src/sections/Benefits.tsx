@@ -15,9 +15,9 @@ import {
   BadgeCheck,
 } from "lucide-react";
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────
    BENEFIT DATA
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ─────────────────────────────── */
 const benefits = [
   {
     number: "01",
@@ -61,17 +61,17 @@ const benefits = [
 ];
 
 const countryFlags = [
-  { name: "China", flag: "ðŸ‡¨ðŸ‡³" },
-  { name: "UK", flag: "ðŸ‡¬ðŸ‡§" },
-  { name: "Turkey", flag: "ðŸ‡¹ðŸ‡·" },
-  { name: "Italy", flag: "ðŸ‡®ðŸ‡¹" },
-  { name: "USA", flag: "ðŸ‡ºðŸ‡¸" },
-  { name: "UAE", flag: "ðŸ‡¦ðŸ‡ª" },
+  { name: "China", flag: "🇨🇳" },
+  { name: "UK", flag: "🇬🇧" },
+  { name: "Turkey", flag: "🇹🇷" },
+  { name: "Italy", flag: "🇮🇹" },
+  { name: "USA", flag: "🇺🇸" },
+  { name: "UAE", flag: "🇦🇪" },
 ];
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────
    SCROLL REVEAL WRAPPER
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ─────────────────────────────── */
 function ScrollReveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   return (
     <motion.div
@@ -86,9 +86,9 @@ function ScrollReveal({ children, delay = 0, className = "" }: { children: React
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────
    BENEFIT CARD
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ─────────────────────────────── */
 function BenefitCard({ benefit, index }: { benefit: typeof benefits[0]; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -191,9 +191,9 @@ function BenefitCard({ benefit, index }: { benefit: typeof benefits[0]; index: n
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────
    COUNTRY MARQUEE
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ─────────────────────────────── */
 function CountryMarquee() {
   return (
     <div className="relative overflow-hidden py-4">
@@ -215,9 +215,9 @@ function CountryMarquee() {
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ───────────────────────────────
    TRUST BADGE ROW
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ─────────────────────────────── */
 const trustBadges = [
   { icon: BadgeCheck, text: "Verified Suppliers" },
   { icon: Truck, text: "Door-to-Door Delivery" },
@@ -246,9 +246,9 @@ function TrustBadgeRow() {
   );
 }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+/* ════════════════════════════════
    MAIN BENEFITS COMPONENT
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+   ════════════════════════════════ */
 export function Benefits() {
   const ref = useRef(null);
 
@@ -282,7 +282,7 @@ export function Benefits() {
           </h2>
           <p className="text-white/40 text-sm max-w-2xl mx-auto leading-relaxed">
             We eliminate the complexity of international sourcing. From supplier discovery 
-            to your doorstep â€” verified, insured, and hassle-free.
+            to your doorstep — verified, insured, and hassle-free.
           </p>
         </ScrollReveal>
 

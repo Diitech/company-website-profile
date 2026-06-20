@@ -1,6 +1,5 @@
 import { Suspense, lazy } from 'react';
 import { Hero } from '../sections/Hero';
-import { AIChatbot } from '../components/AIChatbot';
 
 // Lazy load below-the-fold sections for smooth initial load
 const OurStory = lazy(() => import('../sections/OurStory').then(m => ({ default: m.OurStory })));
@@ -68,9 +67,6 @@ function HomePage() {
           <CTA />
         </section>
       </Suspense>
-
-      {/* AI Chatbot - rendered on all pages via App.tsx but scoped here */}
-      <AIChatbot />
     </>
   );
 }

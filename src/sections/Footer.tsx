@@ -18,12 +18,12 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-/* â”€â”€â”€ UTILITIES â”€â”€â”€ */
+/* ─── UTILITIES ─── */
 function cx(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }
 
-/* â”€â”€â”€ FLOATING ORBS â”€â”€â”€ */
+/* ─── FLOATING ORBS ─── */
 function FloatingOrbs() {
   return (
     <>
@@ -51,7 +51,7 @@ function FloatingOrbs() {
   );
 }
 
-/* â”€â”€â”€ ANIMATED LINK â”€â”€â”€ */
+/* ─── ANIMATED LINK ─── */
 function AnimatedLink({
   to,
   href,
@@ -100,7 +100,7 @@ function AnimatedLink({
   return <Link to={to || "/"}>{content}</Link>;
 }
 
-/* â”€â”€â”€ SOCIAL ICON â”€â”€â”€ */
+/* ─── SOCIAL ICON ─── */
 function SocialIcon({
   icon: Icon,
   href,
@@ -132,7 +132,7 @@ function SocialIcon({
   );
 }
 
-/* â”€â”€â”€ NEWSLETTER â”€â”€â”€ */
+/* ─── NEWSLETTER ─── */
 function Newsletter() {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -202,7 +202,7 @@ function Newsletter() {
   );
 }
 
-/* â”€â”€â”€ COLUMN HEADER â”€â”€â”€ */
+/* ─── COLUMN HEADER ─── */
 function ColumnHeader({
   children,
   delay,
@@ -223,7 +223,7 @@ function ColumnHeader({
   );
 }
 
-/* â”€â”€â”€ CONTACT ITEM â”€â”€â”€ */
+/* ─── CONTACT ITEM ─── */
 function ContactItem({
   icon: Icon,
   text,
@@ -263,7 +263,7 @@ function ContactItem({
   );
 }
 
-/* â”€â”€â”€ MAIN FOOTER â”€â”€â”€ */
+/* ─── MAIN FOOTER ─── */
 export function Footer() {
   const ref = useRef(null);
 
@@ -347,7 +347,7 @@ export function Footer() {
 
             <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-sm">
               Digital Solutions & Global Procurement Company. We build, manage,
-              automate, source, and train â€” empowering businesses across Africa
+              automate, source, and train — empowering businesses across Africa
               and beyond.
             </p>
 
@@ -433,6 +433,12 @@ export function Footer() {
                 delay={0.35}
               />
               <ContactItem
+                icon={Mail}
+                text="Deliamutiempire@gmail.com (backup)"
+                href="mailto:Deliamutiempire@gmail.com"
+                delay={0.38}
+              />
+              <ContactItem
                 icon={Phone}
                 text="🇳🇬 +234 815 848 4621"
                 href="tel:+2348158484621"
@@ -462,7 +468,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 text-white/30 text-xs">
                 <Shield className="w-3.5 h-3.5" />
-                <span>CAC Registered Â· RC 9580371</span>
+                <span>CAC Registered · RC 9580371</span>
               </div>
             </div>
           </motion.div>
@@ -481,7 +487,7 @@ export function Footer() {
         >
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <p className="text-white/40 text-sm">
-              Â© {new Date().getFullYear()}{" "}
+              © {new Date().getFullYear()}{" "}
               <span className="font-bold text-white/60">DMULTICHOICE</span>.
               Built with{" "}
               <Heart className="w-3 h-3 inline text-rose-400 fill-rose-400" />{" "}

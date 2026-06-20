@@ -9,12 +9,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
-/* â”€â”€â”€ UTILITIES â”€â”€â”€ */
+/* ─── UTILITIES ─── */
 function cx(...parts: Array<string | false | null | undefined>) {
   return parts.filter(Boolean).join(" ");
 }
 
-/* â”€â”€â”€ FLOATING ORBS â”€â”€â”€ */
+/* ─── FLOATING ORBS ─── */
 function FloatingOrbs() {
   return (
     <>
@@ -37,7 +37,7 @@ function FloatingOrbs() {
   );
 }
 
-/* â”€â”€â”€ ANIMATED INPUT â”€â”€â”€ */
+/* ─── ANIMATED INPUT ─── */
 function AnimatedInput({
   id,
   label,
@@ -119,7 +119,7 @@ function AnimatedInput({
   );
 }
 
-/* â”€â”€â”€ ANIMATED SELECT â”€â”€â”€ */
+/* ─── ANIMATED SELECT ─── */
 function AnimatedSelect({
   label,
   icon: Icon,
@@ -224,7 +224,7 @@ function AnimatedSelect({
   );
 }
 
-/* â”€â”€â”€ ANIMATED TEXTAREA â”€â”€â”€ */
+/* ─── ANIMATED TEXTAREA ─── */
 function AnimatedTextarea({
   label,
   placeholder,
@@ -279,7 +279,7 @@ function AnimatedTextarea({
   );
 }
 
-/* â”€â”€â”€ TRUST BADGE â”€â”€â”€ */
+/* ─── TRUST BADGE ─── */
 function TrustBadge({ icon: Icon, label, delay }: { icon: React.ElementType; label: string; delay: number }) {
   return (
     <motion.div
@@ -295,7 +295,7 @@ function TrustBadge({ icon: Icon, label, delay }: { icon: React.ElementType; lab
   );
 }
 
-/* â”€â”€â”€ SUCCESS STATE â”€â”€â”€ */
+/* ─── SUCCESS STATE ─── */
 function SuccessState({ onReset }: { onReset: () => void }) {
   return (
     <motion.div
@@ -366,7 +366,7 @@ function SuccessState({ onReset }: { onReset: () => void }) {
   );
 }
 
-/* â”€â”€â”€ MAIN FORM â”€â”€â”€ */
+/* ─── MAIN FORM ─── */
 export function RegistrationForm() {
   const ref = useRef(null);
   const [submitted, setSubmitted] = useState(false);
@@ -417,7 +417,7 @@ export function RegistrationForm() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.015)_0%,_transparent_70%)]" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* â”€â”€ HEADER â”€â”€ */}
+        {/* ── HEADER ── */}
         <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -454,7 +454,7 @@ export function RegistrationForm() {
           </motion.p>
         </div>
 
-        {/* â”€â”€ FORM â”€â”€ */}
+        {/* ── FORM ── */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 40 }}

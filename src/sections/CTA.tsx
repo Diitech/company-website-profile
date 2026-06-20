@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Mail, Phone } from 'lucide-react';
 
@@ -55,20 +56,29 @@ export function CTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Button
-              size="lg"
-              className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-6 text-base font-medium transition-all hover:scale-105 group"
+            <Link to="/contact" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="w-full sm:w-auto bg-white text-black hover:bg-white/90 rounded-full px-8 py-6 text-base font-medium transition-all hover:scale-105 group"
+              >
+                Contact Us Today
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <a
+              href="https://wa.me/2348158484621"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
-              Contact Us Today
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-medium transition-all"
-            >
-              Schedule a Call
-            </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full sm:w-auto border-white/20 text-white hover:bg-white/10 rounded-full px-8 py-6 text-base font-medium transition-all"
+              >
+                Schedule a Call
+              </Button>
+            </a>
           </div>
 
           {/* Contact Info */}
