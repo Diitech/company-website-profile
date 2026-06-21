@@ -1,6 +1,7 @@
 ﻿import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useEffect, useMemo, useState, useRef, useCallback } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { VideoInView } from "./VideoInView";
 import {
   ArrowRight,
   MessageCircle,
@@ -51,8 +52,20 @@ function Orbs() {
   const orbs = [
     { cls: "bg-blue-500/20", left: "8%", top: "15%", w: "w-72 h-72", dur: 20 },
     { cls: "bg-cyan-500/15", left: "70%", top: "20%", w: "w-64 h-64", dur: 24 },
-    { cls: "bg-violet-500/15", left: "25%", top: "65%", w: "w-80 h-80", dur: 28 },
-    { cls: "bg-emerald-500/12", left: "75%", top: "60%", w: "w-56 h-56", dur: 18 },
+    {
+      cls: "bg-violet-500/15",
+      left: "25%",
+      top: "65%",
+      w: "w-80 h-80",
+      dur: 28,
+    },
+    {
+      cls: "bg-emerald-500/12",
+      left: "75%",
+      top: "60%",
+      w: "w-56 h-56",
+      dur: 18,
+    },
     { cls: "bg-rose-500/10", left: "50%", top: "40%", w: "w-96 h-96", dur: 32 },
   ];
 
@@ -227,14 +240,54 @@ function Marquee({ items }: { items: string[] }) {
    SERVICE BENTO GRID
    ─────────────────────────────── */
 const services = [
-  { label: "Web Development", icon: Globe, color: "#3B82F6", desc: "Custom sites" },
-  { label: "App Development", icon: Code2, color: "#06B6D4", desc: "Native & cross-platform" },
-  { label: "AI Automation", icon: Bot, color: "#8B5CF6", desc: "Smart workflows" },
-  { label: "Digital Marketing", icon: TrendingUp, color: "#10B981", desc: "Growth engine" },
-  { label: "Social Media", icon: Share2, color: "#EC4899", desc: "Brand presence" },
-  { label: "Graphic Design", icon: Paintbrush, color: "#F59E0B", desc: "Visual identity" },
-  { label: "Import & Export", icon: Package, color: "#14B8A6", desc: "Global trade" },
-  { label: "Property Mgmt", icon: Building2, color: "#6366F1", desc: "Real estate" },
+  {
+    label: "Web Development",
+    icon: Globe,
+    color: "#3B82F6",
+    desc: "Custom sites",
+  },
+  {
+    label: "App Development",
+    icon: Code2,
+    color: "#06B6D4",
+    desc: "Native & cross-platform",
+  },
+  {
+    label: "AI Automation",
+    icon: Bot,
+    color: "#8B5CF6",
+    desc: "Smart workflows",
+  },
+  {
+    label: "Digital Marketing",
+    icon: TrendingUp,
+    color: "#10B981",
+    desc: "Growth engine",
+  },
+  {
+    label: "Social Media",
+    icon: Share2,
+    color: "#EC4899",
+    desc: "Brand presence",
+  },
+  {
+    label: "Graphic Design",
+    icon: Paintbrush,
+    color: "#F59E0B",
+    desc: "Visual identity",
+  },
+  {
+    label: "Import & Export",
+    icon: Package,
+    color: "#14B8A6",
+    desc: "Global trade",
+  },
+  {
+    label: "Property Mgmt",
+    icon: Building2,
+    color: "#6366F1",
+    desc: "Real estate",
+  },
 ];
 
 function ServiceBento() {
@@ -258,7 +311,9 @@ function ServiceBento() {
               <s.icon className="w-4 h-4" style={{ color: s.color }} />
             </div>
             <div>
-              <div className="text-[12px] font-semibold text-white/90">{s.label}</div>
+              <div className="text-[12px] font-semibold text-white/90">
+                {s.label}
+              </div>
               <div className="text-[10px] text-white/40">{s.desc}</div>
             </div>
           </div>
@@ -277,7 +332,11 @@ function ServiceBento() {
 /* ───────────────────────────────
    LIVE COUNTER HOOK
    ─────────────────────────────── */
-function useCountUp(end: number, duration: number = 2000, startDelay: number = 500) {
+function useCountUp(
+  end: number,
+  duration: number = 2000,
+  startDelay: number = 500,
+) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -301,7 +360,15 @@ function useCountUp(end: number, duration: number = 2000, startDelay: number = 5
 /* ───────────────────────────────
    SCROLL REVEAL WRAPPER
    ─────────────────────────────── */
-function ScrollReveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+function ScrollReveal({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -319,12 +386,27 @@ function ScrollReveal({ children, delay = 0, className = "" }: { children: React
    TESTIMONIAL CARD
    ─────────────────────────────── */
 const testimonials = [
-  { name: "Sarah O.", role: "E-commerce Owner", text: "Built our store in 10 days. Sales up 300%.", rating: 5 },
-  { name: "James K.", role: "Tech Startup CEO", text: "AI automation saved us 40 hours/week.", rating: 5 },
-  { name: "Amina B.", role: "Import Business", text: "Insured shipping to UK was seamless.", rating: 5 },
+  {
+    name: "Sarah O.",
+    role: "E-commerce Owner",
+    text: "Built our store in 10 days. Sales up 300%.",
+    rating: 5,
+  },
+  {
+    name: "James K.",
+    role: "Tech Startup CEO",
+    text: "AI automation saved us 40 hours/week.",
+    rating: 5,
+  },
+  {
+    name: "Amina B.",
+    role: "Import Business",
+    text: "Insured shipping to UK was seamless.",
+    rating: 5,
+  },
 ];
 
-function TestimonialCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
+function TestimonialCard({ t, i }: { t: (typeof testimonials)[0]; i: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -339,10 +421,15 @@ function TestimonialCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
           <Star key={j} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
         ))}
       </div>
-      <p className="text-white/60 text-sm leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
+      <p className="text-white/60 text-sm leading-relaxed mb-4">
+        &ldquo;{t.text}&rdquo;
+      </p>
       <div className="flex items-center gap-3">
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 flex items-center justify-center text-[10px] font-bold text-white/80">
-          {t.name.split(" ").map(n => n[0]).join("")}
+          {t.name
+            .split(" ")
+            .map((n) => n[0])
+            .join("")}
         </div>
         <div>
           <div className="text-xs font-semibold text-white/80">{t.name}</div>
@@ -357,10 +444,30 @@ function TestimonialCard({ t, i }: { t: typeof testimonials[0]; i: number }) {
    PROCESS STEPS
    ─────────────────────────────── */
 const processSteps = [
-  { step: "01", title: "Discovery Call", desc: "Free 30-min strategy session to map your goals.", icon: MessageCircle },
-  { step: "02", title: "Custom Proposal", desc: "Detailed scope, timeline & pricing within 24hrs.", icon: Shield },
-  { step: "03", title: "Build & Deploy", desc: "Agile delivery with weekly demos & feedback loops.", icon: Zap },
-  { step: "04", title: "Scale & Support", desc: "Ongoing optimization, 24/7 support & growth.", icon: TrendingUp },
+  {
+    step: "01",
+    title: "Discovery Call",
+    desc: "Free 30-min strategy session to map your goals.",
+    icon: MessageCircle,
+  },
+  {
+    step: "02",
+    title: "Custom Proposal",
+    desc: "Detailed scope, timeline & pricing within 24hrs.",
+    icon: Shield,
+  },
+  {
+    step: "03",
+    title: "Build & Deploy",
+    desc: "Agile delivery with weekly demos & feedback loops.",
+    icon: Zap,
+  },
+  {
+    step: "04",
+    title: "Scale & Support",
+    desc: "Ongoing optimization, 24/7 support & growth.",
+    icon: TrendingUp,
+  },
 ];
 
 function ProcessSteps() {
@@ -372,7 +479,11 @@ function ProcessSteps() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 0.6,
+            delay: i * 0.12,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           whileHover={{ y: -6 }}
           className="group relative rounded-2xl bg-white/[0.015] border border-white/[0.05] p-6 hover:border-white/[0.12] transition-all"
         >
@@ -397,10 +508,26 @@ function ProcessSteps() {
    FEATURE HIGHLIGHTS
    ─────────────────────────────── */
 const features = [
-  { icon: Clock, title: "2-Week Delivery", desc: "Rapid prototyping to live deployment" },
-  { icon: Shield, title: "Insured Imports", desc: "Full coverage on all global shipments" },
-  { icon: Users, title: "Dedicated Team", desc: "Your own project manager & dev squad" },
-  { icon: Award, title: "CAC Registered", desc: "RC 9580371 · Fully compliant & trusted" },
+  {
+    icon: Clock,
+    title: "2-Week Delivery",
+    desc: "Rapid prototyping to live deployment",
+  },
+  {
+    icon: Shield,
+    title: "Insured Imports",
+    desc: "Full coverage on all global shipments",
+  },
+  {
+    icon: Users,
+    title: "Dedicated Team",
+    desc: "Your own project manager & dev squad",
+  },
+  {
+    icon: Award,
+    title: "CAC Registered",
+    desc: "RC 9580371 · Fully compliant & trusted",
+  },
 ];
 
 function FeatureHighlights() {
@@ -457,8 +584,18 @@ export function Hero() {
     () => [
       { label: "AI Automation", Icon: Bot, speed: 18, color: "#A78BFA" },
       { label: "Social Media", Icon: Share2, speed: 22, color: "#F472B6" },
-      { label: "Digital Growth", Icon: TrendingUp, speed: 25, color: "#34D399" },
-      { label: "Smart Solutions", Icon: Smartphone, speed: 20, color: "#60A5FA" },
+      {
+        label: "Digital Growth",
+        Icon: TrendingUp,
+        speed: 25,
+        color: "#34D399",
+      },
+      {
+        label: "Smart Solutions",
+        Icon: Smartphone,
+        speed: 20,
+        color: "#60A5FA",
+      },
     ],
     [],
   );
@@ -491,30 +628,48 @@ export function Hero() {
   const countryCount = useCountUp(5, 2000, 1000);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-[#030305]">
-      {/* ── Video background with parallax ── */}
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, rgba(56,189,248,0.22) 0%, rgba(16,185,129,0.18) 45%, rgba(99,102,241,0.18) 100%)",
+      }}
+    >
+      {/* ── Video background with parallax (lazy mounted) ── */}
       <motion.div
         className="absolute inset-0"
         style={{ x: bgShiftX, y: bgShiftY }}
       >
-        <video
-          src="/hero-video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-[0.12]"
-        />
+        <VideoInView>
+          {({ isInView }) => (
+            <video
+              src="/hero-video.mp4"
+              preload="metadata"
+              autoPlay={isInView}
+              muted
+              loop
+              playsInline
+              // Ensure autoplay on Safari/older browsers
+              webkit-playsinline={true as unknown as undefined}
+              className="absolute inset-0 w-full h-full object-cover opacity-[0.28] blur-md brightness-115 contrast-105 scale-[1.05]"
+            />
+          )}
+        </VideoInView>
       </motion.div>
 
       {/* ── Grid overlay ── */}
       <div className="absolute inset-0 opacity-60 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-      {/* ── Ambient orbs ── */}
-      <Orbs />
+      {/* ── Ambient orbs (reduced on mobile) ── */}
+      <div className="hidden md:block">
+        <Orbs />
+      </div>
 
-      {/* ── Floating particles ── */}
-      <ParticleField />
+      {/* ── Floating particles (reduced on mobile) ── */}
+      <div className="hidden md:block">
+        <ParticleField />
+      </div>
 
       {/* ── Main content ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 lg:pt-32 pb-16">
@@ -544,7 +699,11 @@ export function Hero() {
                   key={w}
                   initial={{ y: 40, opacity: 0, rotateX: -20 }}
                   animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.2 + i * 0.1,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className="inline-block mr-3"
                   style={{ perspective: "1000px" }}
                 >
@@ -595,7 +754,10 @@ export function Hero() {
                   >
                     <span
                       className="w-1.5 h-1.5 rounded-full animate-pulse"
-                      style={{ background: s.color, boxShadow: `0 0 8px ${s.color}` }}
+                      style={{
+                        background: s.color,
+                        boxShadow: `0 0 8px ${s.color}`,
+                      }}
                     />
                     {s.label}
                     <span
@@ -614,9 +776,9 @@ export function Hero() {
               transition={{ delay: 1.2, duration: 0.6 }}
               className="text-white/40 text-sm leading-relaxed max-w-lg"
             >
-              DMULTICHOICE is a full-service digital studio and procurement partner. 
-              From enterprise web platforms to AI-powered automation and insured global imports — 
-              we engineer solutions that scale.
+              DMULTICHOICE is a full-service digital studio and procurement
+              partner. From enterprise web platforms to AI-powered automation
+              and insured global imports — we engineer solutions that scale.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -667,7 +829,9 @@ export function Hero() {
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-1.5">
                   <item.icon className="w-3.5 h-3.5 text-emerald-400/70" />
-                  <span className="text-[11px] text-white/40 font-medium">{item.text}</span>
+                  <span className="text-[11px] text-white/40 font-medium">
+                    {item.text}
+                  </span>
                 </div>
               ))}
             </motion.div>
@@ -691,37 +855,47 @@ export function Hero() {
                     <Sparkles className="w-4 h-4 text-blue-400" />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-white/90">DMULTICHOICE</div>
-                    <div className="text-[10px] text-white/35 tracking-wide uppercase">Digital Studio + Procurement</div>
+                    <div className="text-sm font-semibold text-white/90">
+                      DMULTICHOICE SERVICES
+                    </div>
+                    <div className="text-[10px] text-white/35 tracking-wide uppercase">
+                      Digital Studio + Procurement
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[10px] font-semibold text-emerald-400/80">Available Now</span>
+                  <span className="text-[10px] font-semibold text-emerald-400/80">
+                    Available Now
+                  </span>
                 </div>
               </div>
 
               {/* Service Bento Grid */}
               <ServiceBento />
 
-              {/* Orbiting badges */}
-              <div className="relative h-32 mt-4">
-                <OrbitingBadges badges={orbitBadges} />
+              {/* Orbiting badges (reduced on mobile) */}
+              <div className="hidden md:block">
+                <div className="relative h-32 mt-4">
+                  <OrbitingBadges badges={orbitBadges} />
+                </div>
               </div>
 
               {/* Bottom info bar */}
               <div className="mt-4 flex items-center justify-between pt-4 border-t border-white/[0.04]">
                 <div className="flex items-center gap-2">
-                  {["#3B82F6", "#06B6D4", "#8B5CF6", "#10B981"].map((c, idx) => (
-                    <span
-                      key={idx}
-                      className="w-2 h-2 rounded-full"
-                      style={{
-                        background: c,
-                        boxShadow: `0 0 14px ${c}44`,
-                      }}
-                    />
-                  ))}
+                  {["#3B82F6", "#06B6D4", "#8B5CF6", "#10B981"].map(
+                    (c, idx) => (
+                      <span
+                        key={idx}
+                        className="w-2 h-2 rounded-full"
+                        style={{
+                          background: c,
+                          boxShadow: `0 0 14px ${c}44`,
+                        }}
+                      />
+                    ),
+                  )}
                 </div>
                 <span className="text-[10px] text-white/30 font-medium">
                   4 Active Service Orbits
@@ -752,8 +926,12 @@ export function Hero() {
                 { value: "100%", label: "Insured Imports" },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-lg lg:text-xl font-bold text-white/90">{stat.value}</div>
-                  <div className="text-[10px] text-white/35 font-medium tracking-wide uppercase mt-0.5">{stat.label}</div>
+                  <div className="text-lg lg:text-xl font-bold text-white/90">
+                    {stat.value}
+                  </div>
+                  <div className="text-[10px] text-white/35 font-medium tracking-wide uppercase mt-0.5">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
@@ -768,8 +946,12 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <ScrollReveal>
           <div className="text-center mb-8">
-            <span className="text-[11px] font-semibold text-cyan-400/70 tracking-widest uppercase">Why Choose Us</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">Built for Speed, Scale & Trust</h2>
+            <span className="text-[11px] font-semibold text-cyan-400/70 tracking-widest uppercase">
+              Why Choose Us
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">
+              Built for Speed, Scale & Trust
+            </h2>
           </div>
         </ScrollReveal>
         <FeatureHighlights />
@@ -779,8 +961,12 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <ScrollReveal>
           <div className="text-center mb-8">
-            <span className="text-[11px] font-semibold text-cyan-400/70 tracking-widest uppercase">How It Works</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">From Idea to Launch in 4 Steps</h2>
+            <span className="text-[11px] font-semibold text-cyan-400/70 tracking-widest uppercase">
+              How It Works
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">
+              From Idea to Launch in 4 Steps
+            </h2>
           </div>
         </ScrollReveal>
         <ProcessSteps />
@@ -790,8 +976,12 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <ScrollReveal>
           <div className="text-center mb-8">
-            <span className="text-[11px] font-semibold text-cyan-400/70 tracking-widest uppercase">Client Stories</span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">Trusted by Founders & Business Owners</h2>
+            <span className="text-[11px] font-semibold text-cyan-400/70 tracking-widest uppercase">
+              Client Stories
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mt-2">
+              Trusted by Founders & Business Owners
+            </h2>
           </div>
         </ScrollReveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

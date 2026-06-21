@@ -341,7 +341,7 @@ export function Footer() {
                 />
               </div>
               <span className="text-2xl font-black text-white tracking-tight">
-                DMULTICHOICE
+                DMULTICHOICE SERVICE
               </span>
             </Link>
 
@@ -488,8 +488,10 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <p className="text-white/40 text-sm">
               © {new Date().getFullYear()}{" "}
-              <span className="font-bold text-white/60">DMULTICHOICE</span>.
-              Built with{" "}
+              <span className="font-bold text-white/60">
+                DMULTICHOICE SERVICE
+              </span>
+              . Built with{" "}
               <Heart className="w-3 h-3 inline text-rose-400 fill-rose-400" />{" "}
               in Lagos, Nigeria.
             </p>
@@ -517,4 +519,3 @@ export function Footer() {
     </footer>
   );
 }
-
