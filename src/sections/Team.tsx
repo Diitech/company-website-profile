@@ -36,7 +36,7 @@ const teamMembers = [
     social: { linkedin: '#', twitter: '#', email: 'wei@dmultichoice.com' },
   },
   {
-    name: 'Mr Adnan',
+    name: 'Mr Adnan Malah Kachallah',
     role: 'Lead and strategic Coordinator',
     image: '/team-3.png',
     bio: 'Passionate educator leading our digital skills and import/export training programs. Helping Nigerians build successful careers.',
