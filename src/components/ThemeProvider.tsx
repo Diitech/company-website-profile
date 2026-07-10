@@ -50,7 +50,7 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="relative w-9 h-9 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-white/50 hover:text-white hover:bg-white/[0.06] transition-all"
+      className="relative w-9 h-9 rounded-xl bg-foreground/[0.05] border border-foreground/[0.1] flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-foreground/[0.1] transition-all"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
       <motion.div

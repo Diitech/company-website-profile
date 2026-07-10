@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Blue + Gold theme (entire page background) */
+    /* Blue + Gold theme — DARK is default */
     --background: 223 85% 12%; /* deep blue */
     --background-secondary: 223 75% 16%; /* slightly lighter blue */
     --foreground: 48 30% 96%; /* near-white */
@@ -43,6 +43,37 @@
     --color-glow-cyan: 6 182 212; /* cyan */
     --color-glow-violet: 139 92 246; /* violet */
     --color-glow-emerald: 16 185 129; /* emerald */
+  }
+
+  /* LIGHT THEME — this block was missing, which is why the toggle did nothing */
+  .light {
+    --background: 48 30% 98%; /* near-white / ivory */
+    --background-secondary: 45 40% 95%;
+    --foreground: 223 85% 12%; /* deep blue text */
+    --card: 0 0% 100%; /* white cards */
+    --card-foreground: 223 85% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 223 85% 12%;
+
+    --primary: 223 85% 12%;
+    --primary-foreground: 48 30% 98%;
+
+    --secondary: 45 40% 93%;
+    --secondary-foreground: 223 85% 12%;
+
+    --muted: 45 20% 90%;
+    --muted-foreground: 223 40% 30%; /* dark blue-gray body text on white, not gold */
+
+    /* Gold accent — darker/more saturated than dark-mode gold so it holds contrast on white */
+    --accent: 45 100% 45%;
+    --accent-foreground: 223 85% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 223 20% 85%;
+    --input: 223 20% 85%;
+    --ring: 45 100% 45%;
   }
 }
 
@@ -124,8 +155,14 @@
   background: rgba(255, 255, 255, 0.08);
   border-radius: 3px;
 }
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(10, 24, 48, 0.15);
+}
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.15);
+}
+.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 24, 48, 0.25);
 }
 
 /* Smooth image loading */

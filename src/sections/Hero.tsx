@@ -1,17 +1,9 @@
 ﻿import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { ManifestQuoteWidget } from "@/components/ManifestQuoteWidget";
 import { VideoInView } from "./VideoInView";
-import {
-  ArrowRight,
-  Globe,
-  Code2,
-  Sparkles,
-  Package,
-  Bot,
-  GraduationCap,
-  Building2,
-} from "lucide-react";
 
 /* ───────────────────────────────
    JSON-LD SCHEMA (SEO Structured Data)
@@ -20,76 +12,84 @@ function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "DMULTICHOICE",
-    "alternateName": "DMULTICHOICE Digital Studio",
-    "url": "https://dmultichoice.com",
-    "logo": "https://dmultichoice.com/logo.png",
-    "description": "Full-service digital studio and procurement partner specializing in website development, mobile apps, custom software, AI automation, online training, property management, and insured import/export services.",
-    "foundingDate": "2020",
-    "sameAs": ["https://wa.me/2348158484621"],
-    "areaServed": { "@type": "Place", "name": "Global" },
-    "hasOfferCatalog": {
+    name: "DMULTICHOICE",
+    alternateName: "DMULTICHOICE Digital Studio",
+    url: "https://dmultichoice.com",
+    logo: "https://dmultichoice.com/logo.png",
+    description:
+      "Full-service digital studio and procurement partner specializing in website development, mobile apps, custom software, AI automation, online training, property management, and insured import/export services.",
+    foundingDate: "2020",
+    sameAs: ["https://wa.me/2348158484621"],
+    areaServed: { "@type": "Place", name: "Global" },
+    hasOfferCatalog: {
       "@type": "OfferCatalog",
-      "name": "DMULTICHOICE Services",
-      "itemListElement": [
+      name: "DMULTICHOICE Services",
+      itemListElement: [
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Website Development",
-            "description": "Custom enterprise websites, e-commerce platforms, and web applications built for performance and scale."
-          }
+            name: "Website Development",
+            description:
+              "Custom enterprise websites, e-commerce platforms, and web applications built for performance and scale.",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Mobile App Development",
-            "description": "Native iOS, Android, and cross-platform applications with seamless user experiences."
-          }
+            name: "Mobile App Development",
+            description:
+              "Native iOS, Android, and cross-platform applications with seamless user experiences.",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Custom Software Development",
-            "description": "Bespoke software solutions, SaaS platforms, and enterprise systems tailored to your workflow."
-          }
+            name: "Custom Software Development",
+            description:
+              "Bespoke software solutions, SaaS platforms, and enterprise systems tailored to your workflow.",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "AI Automation",
-            "description": "Intelligent workflow automation, chatbots, and machine learning integrations."
-          }
+            name: "AI Automation",
+            description:
+              "Intelligent workflow automation, chatbots, and machine learning integrations.",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Import & Export Services",
-            "description": "Insured global procurement, logistics, and trade solutions with full compliance coverage."
-          }
+            name: "Import & Export Services",
+            description:
+              "Insured global procurement, logistics, and trade solutions with full compliance coverage.",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Online Training",
-            "description": "Professional tech courses and digital skills training for individuals and teams."
-          }
+            name: "Online Training",
+            description:
+              "Professional tech courses and digital skills training for individuals and teams.",
+          },
         },
         {
           "@type": "Offer",
-          "itemOffered": {
+          itemOffered: {
             "@type": "Service",
-            "name": "Property Management",
-            "description": "Real estate management, tenant services, and property technology solutions."
-          }
-        }
-      ]
-    }
+            name: "Property Management",
+            description:
+              "Real estate management, tenant services, and property technology solutions.",
+          },
+        },
+      ],
+    },
   };
 
   return (
@@ -103,7 +103,11 @@ function OrganizationSchema() {
 /* ───────────────────────────────
    LIVE COUNTER HOOK
    ─────────────────────────────── */
-function useCountUp(end: number, duration: number = 2000, startDelay: number = 500) {
+function useCountUp(
+  end: number,
+  duration: number = 2000,
+  startDelay: number = 500,
+) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -125,113 +129,18 @@ function useCountUp(end: number, duration: number = 2000, startDelay: number = 5
 }
 
 /* ───────────────────────────────
-   ANIMATED SERVICE PILL (with bounce)
-   ─────────────────────────────── */
-const services = [
-  { icon: Globe, label: "Website Development", color: "#38BDF8" },
-  { icon: Code2, label: "Mobile Apps", color: "#818CF8" },
-  { icon: Sparkles, label: "Custom Software", color: "#A78BFA" },
-  { icon: Bot, label: "AI Automation", color: "#34D399" },
-  { icon: Package, label: "Import & Export", color: "#FBBF24" },
-  { icon: GraduationCap, label: "Online Training", color: "#F472B6" },
-  { icon: Building2, label: "Property Management", color: "#60A5FA" },
-];
+   Legacy service pill data (from previous hero version)
+   Kept so we can minimize diffs; no longer rendered in the upgraded crossroads hero.
+   */
+// Legacy data placeholder (previous hero used it for animated service pills).
+// Not used in the crossroads hero.
+void 0;
 
-function ServicePill({
-  icon: Icon,
-  label,
-  color,
-  delay,
-}: {
-  icon: React.ElementType;
-  label: string;
-  color: string;
-  delay: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.8 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{
-        duration: 0.6,
-        delay,
-        ease: [0.34, 1.56, 0.64, 1], // bounce easing
-      }}
-      whileHover={{
-        scale: 1.12,
-        y: -4,
-        transition: { duration: 0.25, ease: "easeOut" },
-      }}
-      whileTap={{ scale: 0.95 }}
-      className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.06] border border-white/[0.08] backdrop-blur-sm cursor-default transition-colors hover:bg-white/[0.10] hover:border-white/[0.15]"
-    >
-      <Icon
-        className="w-4 h-4 transition-transform duration-300 group-hover:scale-110"
-        style={{ color }}
-      />
-      <span className="text-[11px] font-semibold text-white/70 tracking-wide group-hover:text-white/90 transition-colors">
-        {label}
-      </span>
-      <span
-        className="w-1.5 h-1.5 rounded-full opacity-60 group-hover:opacity-100 transition-opacity"
-        style={{ background: color, boxShadow: `0 0 8px ${color}66` }}
-      />
-    </motion.div>
-  );
-}
 
-/* ───────────────────────────────
-   FLOATING ORBITING SERVICE BADGES
-   (subtle, around the headline area)
-   ─────────────────────────────── */
-function OrbitingServices() {
-  const orbitItems = [
-    { icon: Globe, label: "Web", angle: 0, distance: 220, speed: 20 },
-    { icon: Code2, label: "Apps", angle: 51, distance: 240, speed: 24 },
-    { icon: Bot, label: "AI", angle: 103, distance: 200, speed: 18 },
-    { icon: Package, label: "Trade", angle: 154, distance: 260, speed: 22 },
-    { icon: GraduationCap, label: "Train", angle: 206, distance: 210, speed: 19 },
-    { icon: Building2, label: "Property", angle: 257, distance: 250, speed: 21 },
-    { icon: Sparkles, label: "Software", angle: 309, distance: 230, speed: 23 },
-  ];
 
-  return (
-    <div className="hidden lg:block absolute inset-0 pointer-events-none overflow-visible">
-      {orbitItems.map((item, i) => {
-        const rad = (item.angle * Math.PI) / 180;
-        const x = Math.cos(rad) * item.distance;
-        const y = Math.sin(rad) * item.distance;
 
-        return (
-          <motion.div
-            key={item.label}
-            className="absolute left-1/2 top-1/2"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{
-              opacity: [0.3, 0.7, 0.3],
-              scale: [0.9, 1.1, 0.9],
-              x: [x, x + 15, x],
-              y: [y, y - 12, y],
-            }}
-            transition={{
-              duration: item.speed,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5,
-            }}
-          >
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] backdrop-blur-sm">
-              <item.icon className="w-3 h-3 text-white/40" />
-              <span className="text-[9px] font-medium text-white/40 uppercase tracking-wider">
-                {item.label}
-              </span>
-            </div>
-          </motion.div>
-        );
-      })}
-    </div>
-  );
-}
+
+
 
 /* ════════════════════════════════
    MAIN HERO COMPONENT
@@ -269,7 +178,10 @@ export function Hero() {
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://dmultichoice.com" />
-      <meta property="og:image" content="https://dmultichoice.com/og-image.jpg" />
+      <meta
+        property="og:image"
+        content="https://dmultichoice.com/og-image.jpg"
+      />
       <meta property="og:site_name" content="DMULTICHOICE" />
 
       {/* Twitter Card */}
@@ -282,7 +194,10 @@ export function Hero() {
         name="twitter:description"
         content="Website development, mobile apps, custom software, AI automation, online training, property management & insured import/export services."
       />
-      <meta name="twitter:image" content="https://dmultichoice.com/og-image.jpg" />
+      <meta
+        name="twitter:image"
+        content="https://dmultichoice.com/og-image.jpg"
+      />
 
       <section
         className="relative min-h-screen flex flex-col overflow-hidden bg-black"
@@ -316,10 +231,86 @@ export function Hero() {
         {/* ── Main content ── */}
         <div className="relative z-10 flex-1 flex items-center justify-center px-4 sm:px-6">
           <div className="relative max-w-[900px] w-full text-center py-24 lg:py-32">
-            {/* Orbiting service badges (desktop only) */}
-            <OrbitingServices />
+            {/* Crossroads pattern (mobile-first). Goal: help procurement leaders self-identify in <5 seconds. */}
+            <div className="mt-10 flex flex-col items-center gap-6">
+              <div className="w-full">
+                <h2 className="sr-only">Choose your entry point</h2>
+
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="#services"
+                    className="block rounded-3xl border border-white/10 bg-white/[0.06] px-5 py-4 text-left transition-transform hover:-translate-y-0.5 hover:bg-white/[0.09] focus:outline-none focus:ring-2 focus:ring-[#C9A227]"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <div className="text-xs font-semibold tracking-wide text-white/60 uppercase">
+                          I need to source & purchase globally
+                        </div>
+                        <div className="mt-1 text-lg font-bold text-white">
+                          Global Procurement
+                        </div>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-[#C9A227] mt-1" />
+                    </div>
+                    <div className="mt-2 text-sm text-white/55">
+                      Supplier vetting, cross-border compliance, and
+                      door-to-door delivery.
+                    </div>
+                  </a>
+
+                  <a
+                    href="#process"
+                    className="block rounded-3xl border border-white/10 bg-white/[0.06] px-5 py-4 text-left transition-transform hover:-translate-y-0.5 hover:bg-white/[0.09] focus:outline-none focus:ring-2 focus:ring-[#C9A227]"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <div className="text-xs font-semibold tracking-wide text-white/60 uppercase">
+                          I need internal systems & automation
+                        </div>
+                        <div className="mt-1 text-lg font-bold text-white">
+                          Digital Solutions
+                        </div>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-[#C9A227] mt-1" />
+                    </div>
+                    <div className="mt-2 text-sm text-white/55">
+                      Dashboards, workflow automation, audit-ready reporting.
+                    </div>
+                  </a>
+
+                  <a
+                    href="#proof"
+                    className="block rounded-3xl border border-white/10 bg-white/[0.06] px-5 py-4 text-left transition-transform hover:-translate-y-0.5 hover:bg-white/[0.09] focus:outline-none focus:ring-2 focus:ring-[#C9A227]"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <div className="text-xs font-semibold tracking-wide text-white/60 uppercase">
+                          I want to see results
+                        </div>
+                        <div className="mt-1 text-lg font-bold text-white">
+                          Proof & Outcomes
+                        </div>
+                      </div>
+                      <ArrowRight className="w-5 h-5 text-[#C9A227] mt-1" />
+                    </div>
+                    <div className="mt-2 text-sm text-white/55">
+                      Real artifacts: sourcing trips, payments, inspections,
+                      delivered goods.
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              {/* Signature interactive element (net-new): Manifest Quote Widget */}
+              <div className="w-full flex justify-center">
+                <div className="w-full max-w-xl">
+                  <ManifestQuoteWidget />
+                </div>
+              </div>
+            </div>
 
             {/* Trust badge */}
+
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -375,23 +366,7 @@ export function Hero() {
               built to scale.
             </motion.p>
 
-            {/* Service Pills — 7 core services with bounce animation */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.85 }}
-              className="flex flex-wrap justify-center gap-3 mb-14"
-            >
-              {services.map((s, i) => (
-                <ServicePill
-                  key={s.label}
-                  icon={s.icon}
-                  label={s.label}
-                  color={s.color}
-                  delay={0.9 + i * 0.1}
-                />
-              ))}
-            </motion.div>
+
 
             {/* Single Primary CTA */}
             <motion.div
